@@ -1,0 +1,15 @@
+[
+    {
+        "nombre": "Arroz con verduras",
+        "ingredientes": [
+            "arroz",
+            "zanahoria",
+            "cebolla",
+            "pimiento"
+        ],
+        "calorias": 400,
+        "azucar": 5,
+        "instrucciones": "Cocina el arroz. Sofríe las verduras y mézclalas.",
+        "imagen": "img/arroz_verduras.jpg"
+    }
+]
