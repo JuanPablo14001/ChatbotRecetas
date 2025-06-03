@@ -1,18 +1,51 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recetas Inteligentes</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/output.css">
 </head>
-<body>
-    <h1>Buscar Recetas</h1>
-    <input type="text" id="ingredienteInput" placeholder="Agregar ingrediente">
-    <button onclick="agregarIngrediente()">Agregar</button>
-    <ul id="listaIngredientes"></ul>
-    <button onclick="buscarRecetas()">Buscar Recetas</button>
-    <div id="resultados"></div>
-    <script src="script.js"></script>
+
+<body class="bg-[#FAF3E0] min-h-screen">
+    <!-- Barra superior para móvil -->
+    <div class="md:hidden fixed top-0 left-0 right-0 h-16 bg-orange-300 z-40 flex items-center px-4 shadow-md">
+        <button id="toggleSidebar" class="p-2  text-white font-bold text-3xl rounded-full">
+            ☰
+        </button>
+        <img src="img/logo.svg" alt="Logo" class="w-10 h-10 ml-4">
+    </div>
+    
+
+    <!-- Aside -->
+    <aside id="sidebar" class="group fixed top-16 md:top-0 left-0 h-screen bg-orange-300 z-30 overflow-hidden transition-all duration-300 ease-in-out
+        w-0 md:w-20 md:hover:w-64
+        -translate-x-full md:translate-x-0">
+
+        <div class="flex flex-col h-full w-full md:w-auto">
+            <!-- Logo -->
+            <div class="p-4 flex justify-center items-center">
+                <img src="img/logo.svg" alt="Logo" class="w-16 h-16">
+            </div>
+
+            <!-- Menú: su visibilidad solo depende del hover del aside -->
+            <nav class="px-4 py-2 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                <ul class="space-y-2">
+                    <li><a href="#" class="block p-2 text-base hover:bg-orange-400 rounded">Recetas</a></li>
+                    <li><a href="#" class="block p-2 text-base hover:bg-orange-400 rounded">Favoritas</a></li>
+                    <li><a href="#" class="block p-2 text-base hover:bg-orange-400 rounded">Configuración</a></li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+ 
+    <!-- Main content -->
+    <main class="pt-16 md:pt-0 md:ml-20 p-6 bg-[#f9f0da] min-h-screen transition-all duration-300">
+        <h1 class="text-2xl font-bold">Contenido principal</h1>
+        <p class="mt-4">Aquí va el contenido de tu página.</p>
+    </main>
+
+    <script src="js/events.js"></script>
 </body>
+
 </html>
