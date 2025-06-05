@@ -83,7 +83,6 @@ const loadIngredients = () => {
 const sendIngredients = () => {
     
 
-
 }
 
 
