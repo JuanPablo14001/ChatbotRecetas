@@ -1,51 +1,177 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recetas Inteligentes</title>
-    <link rel="stylesheet" href="css/output.css">
+    <link href="css/output.css" rel="stylesheet">
+    <style>
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #059669;
+        }
+
+        .toggle-checkbox {
+            right: 1.25rem;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .toggle-label {
+            transition: background-color 0.3s ease-in-out;
+        }
+    </style>
 </head>
 
-<body class="bg-[#FAF3E0] min-h-screen">
-    <!-- Barra superior para móvil -->
-    <div class="md:hidden fixed top-0 left-0 right-0 h-16 bg-orange-300 z-40 flex items-center px-4 shadow-md">
-        <button id="toggleSidebar" class="p-2  text-white font-bold text-3xl rounded-full">
-            ☰
-        </button>
-        <img src="img/logo.svg" alt="Logo" class="w-10 h-10 ml-4">
-    </div>
-    
+<body class="flex flex-col h-screen overflow-hidden font-sans">
 
-    <!-- Aside -->
-    <aside id="sidebar" class="group fixed top-16 md:top-0 left-0 h-screen bg-orange-300 z-30 overflow-hidden transition-all duration-300 ease-in-out
-        w-0 md:w-20 md:hover:w-64
-        -translate-x-full md:translate-x-0">
-
-        <div class="flex flex-col h-full w-full md:w-auto">
-            <!-- Logo -->
-            <div class="p-4 flex justify-center items-center">
-                <img src="img/logo.svg" alt="Logo" class="w-16 h-16">
+    <!-- HEADER -->
+    <header class="w-full p-3 bg-[#059669] z-30 relative">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <!-- Botón hamburguesa -->
+            <div class="block md:hidden">
+                <button id="toggleSidebar" class="p-2 text-white font-bold text-3xl cursor-pointer">☰</button>
             </div>
 
-            <!-- Menú: su visibilidad solo depende del hover del aside -->
-            <nav class="px-4 py-2 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
-                <ul class="space-y-2">
-                    <li><a href="#" class="block p-2 text-base hover:bg-orange-400 rounded">Recetas</a></li>
-                    <li><a href="#" class="block p-2 text-base hover:bg-orange-400 rounded">Favoritas</a></li>
-                    <li><a href="#" class="block p-2 text-base hover:bg-orange-400 rounded">Configuración</a></li>
-                </ul>
-            </nav>
+            <!-- Logo -->
+            <div class="flex items-center">
+                <img src="img/Logo.svg" alt="Logo" class="w-12 h-12 mr-1">
+                <h1 class="text-white font-bold text-2xl">Chefsini</h1>
+            </div>
+
+            <!-- Subtítulo (solo escritorio) -->
+            <div class="hidden md:block">
+                <p class="text-gray-200 font-light">Tu asistente personal para cocina</p>
+            </div>
         </div>
-    </aside>
- 
-    <!-- Main content -->
-    <main class="pt-16 md:pt-0 md:ml-20 p-6 bg-[#f9f0da] min-h-screen transition-all duration-300">
-        <h1 class="text-2xl font-bold">Contenido principal</h1>
-        <p class="mt-4">Aquí va el contenido de tu página.</p>
+    </header>
+
+    <!-- MAIN -->
+    <main class="flex flex-1 relative overflow-hidden">
+
+        <!-- SIDEBAR ÚNICO -->
+        <!-- ASIDE ACTUALIZADO -->
+        <aside id="sidebar"
+            class="fixed md:static top-20 left-0 w-full md:w-80 h-[calc(100%-4rem)] md:h-full bg-white border-r border-gray-200 py-3 transform md:transform-none -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out z-40 md:z-auto overflow-y-auto">
+            <div class="flex flex-col w-full px-4">
+                <h2 class="text-2xl font-semibold border-b border-gray-300 pb-2 mb-4">Preferencias</h2>
+
+                <!-- GRUPO DE INPUTS -->
+                <div class="space-y-4">
+                    <!-- Reutilizable para calorías, carbohidratos, etc. -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Calorías (kcal)</label>
+                        <div class="flex space-x-2">
+                            <input type="number" name="cal_min" placeholder="Min"
+                                class="w-1/2 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                            <input type="number" name="cal_max" placeholder="Max"
+                                class="w-1/2 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Carbohidratos (g)</label>
+                        <div class="flex space-x-2">
+                            <input type="number" placeholder="Min"
+                                class="w-1/2 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                            <input type="number" placeholder="Max"
+                                class="w-1/2 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Proteínas (g)</label>
+                        <div class="flex space-x-2">
+                            <input type="number" placeholder="Min"
+                                class="w-1/2 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                            <input type="number" placeholder="Max"
+                                class="w-1/2 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Grasas (g)</label>
+                        <div class="flex space-x-2">
+                            <input type="number" placeholder="Min"
+                                class="w-1/2 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                            <input type="number" placeholder="Max"
+                                class="w-1/2 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Azúcares (g)</label>
+                        <div class="flex space-x-2">
+                            <input type="number" placeholder="Min"
+                                class="w-1/2 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                            <input type="number" placeholder="Max"
+                                class="w-1/2 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOGGLE VEGETARIANO -->
+                <div class="flex items-center justify-between mt-6">
+                    <label for="vegetarianToggle" class="text-sm font-medium text-gray-700">Vegetariano</label>
+                    <div
+                        class="relative inline-block w-11 mr-2 align-middle select-none transition duration-200 ease-in">
+                        <input type="checkbox" name="vegetarian" id="vegetarianToggle"
+                            class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer peer">
+                        <label for="vegetarianToggle"
+                            class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 peer-checked:bg-green-500 cursor-pointer"></label>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+
+        <!-- CONTENIDO + INPUT -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- CHAT -->
+            <section class="flex-1 overflow-auto p-6 bg-gray-50 space-y-4">
+                <div class="bg-white shadow-md rounded-lg p-4 w-full max-w-xl">
+                    <div class="flex items-start">
+                        <img src="img/logo1.svg" alt="Logo" class="w-10 h-10 rounded-full mr-3">
+                        <p class="text-gray-800">Hola!, Soy Chefsini, tu asistente personal de cocina. ¿En qué puedo
+                            ayudarte hoy?</p>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- INPUT PEGADO ABAJO -->
+            <section class="bg-white p-4 border-t border-gray-200 sticky bottom-0 z-10">
+                <div class="w-full max-w-5xl mx-auto">
+                    <!-- LISTA DE INGREDIENTES -->
+                    <div id="ingredientsContainer" class="flex flex-wrap gap-2 mb-2 max-h-32 overflow-y-auto pr-2">
+                        <!-- Aquí se insertarán los ingredientes dinámicamente -->
+                        <!-- <span class="bg-gray-200 text-sm text-gray-800 px-3 py-1 rounded-full flex items-center">
+                            Tomate
+                            <button onclick="removeIngredient(this)"
+                                class="ml-2 text-gray-500 hover:text-red-500 font-bold text-xs">×</button>
+                        </span> -->
+                    </div>
+                    <!-- SUGERENCIAS DE INGREDIENTES -->
+                    <div class="w-full mx-auto mb-2">
+                        <!-- Añadido max-h-40 (equivalente a 10rem o 160px) y overflow-y-auto -->
+                        <ul id="suggestionsList"
+                            class="mb-2 max-w-5xl mx-auto flex flex-wrap gap-2 max-h-40 overflow-y-auto"></ul>
+                    </div>
+
+                    <div class="flex border rounded-md overflow-hidden shadow-sm bg-white">
+                        <textarea id="messageInput"
+                            placeholder="Escribe tus ingredientes y seleccionalos cuando lo encuentres" rows="1"
+                            class="flex-1 resize-none px-4 py-2 outline-none w-full overflow-hidden"></textarea>
+                        <button class="bg-green-600 text-white px-4 hover:bg-green-700 opacity-30" id="sendBtn" disabled>➤</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
     </main>
 
-    <script src="js/events.js"></script>
+    <!-- JS -->
+    <script src="js/index.js"></script>
 </body>
 
 </html>
