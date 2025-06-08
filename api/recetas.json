@@ -1,5 +1,6 @@
 [
     {
+        "id": 1,
         "nombre": "Arroz con verduras",
         "ingredientes": [
             "arroz",
@@ -19,171 +20,63 @@
         "imagen": "img/arroz_verduras.jpg"
     },
     {
-        "nombre": "Huevos revueltos con tomate",
+        "id": 2,
+        "nombre": "Huevos revueltos en salsa",
         "ingredientes": [
-            "huevos",
-            "tomate",
-            "sal",
-            "aceite"
-        ],
-        "restricciones": {
-            "calorias": 300,
-            "carbohidratos": 4,
-            "proteinas": 14,
-            "grasas": 22,
-            "azucares": 3,
-            "vegetariano": true,
-            "sin_gluten": true
-        },
-        "instrucciones": "Paso 1: Picar el tomate. \n Paso 2: Batir los huevos con sal. \n Paso 3: Cocinar todo junto en una sartén con poco aceite.",
-        "imagen": "img/huevos_tomate.jpg"
-    },
-    {
-        "nombre": "Tostadas de frijoles",
-        "ingredientes": [
-            "tostadas",
-            "frijoles refritos",
-            "lechuga",
-            "crema"
-        ],
-        "restricciones": {
-            "calorias": 450,
-            "carbohidratos": 40,
-            "proteinas": 12,
-            "grasas": 20,
-            "azucares": 2,
-            "vegetariano": true
-        },
-        "instrucciones": "Paso 1: Untar los frijoles en las tostadas. \n Paso 2: Agregar lechuga picada y un poco de crema.",
-        "imagen": "img/tostadas_frijoles.jpg"
-    },
-    {
-        "nombre": "Sopa de fideos",
-        "ingredientes": [
-            "fideos",
-            "agua",
-            "caldo de pollo en cubo",
-            "ajo"
-        ],
-        "restricciones": {
-            "calorias": 200,
-            "carbohidratos": 35,
-            "proteinas": 5,
-            "grasas": 5,
-            "azucares": 1
-        },
-        "instrucciones": "Paso 1: Hervir el agua con el ajo. \n Paso 2: Agregar los fideos y el cubo de caldo. \n Paso 3: Cocinar hasta que los fideos estén suaves.",
-        "imagen": "img/sopa_fideos.jpg"
-    },
-    {
-        "nombre": "Sandwich de huevo",
-        "ingredientes": [
-            "pan de caja",
-            "huevo",
-            "mayonesa"
-        ],
-        "restricciones": {
-            "calorias": 350,
-            "carbohidratos": 30,
-            "proteinas": 12,
-            "grasas": 18,
-            "azucares": 3
-        },
-        "instrucciones": "Paso 1: Cocinar el huevo. \n Paso 2: Untar mayonesa en el pan. \n Paso 3: Armar el sandwich con el huevo.",
-        "imagen": "img/sandwich_huevo.jpg"
-    },
-    {
-        "nombre": "Papas al sartén",
-        "ingredientes": [
-            "papa",
-            "aceite",
-            "sal"
+            {
+                "nombre": "jitomate",
+                "sustitutos": [
+                    "tomate"
+                ]
+            },
+            {
+                "nombre": "chiles",
+                "sustitutos": [
+                    "chile verde",
+                    "chile serrano",
+                    "chile de arbol"
+                ]
+            },
+            "cebolla",
+            "ajo*",
+            "huevo"
         ],
         "restricciones": {
             "calorias": 400,
-            "carbohidratos": 45,
-            "proteinas": 4,
-            "grasas": 22,
-            "azucares": 1,
-            "vegetariano": true,
-            "vegano": true,
-            "sin_gluten": true
-        },
-        "instrucciones": "Paso 1: Pelar y cortar las papas en cubos. \n Paso 2: Freírlas con poco aceite hasta que estén doradas.",
-        "imagen": "img/papas_sarten.jpg"
-    },
-    {
-        "nombre": "Tortilla de papa",
-        "ingredientes": [
-            "huevo",
-            "papa",
-            "sal"
-        ],
-        "restricciones": {
-            "calorias": 380,
-            "carbohidratos": 30,
-            "proteinas": 14,
-            "grasas": 25,
-            "azucares": 1,
-            "vegetariano": true,
-            "sin_gluten": true
-        },
-        "instrucciones": "Paso 1: Hervir o freír las papas en rodajas. \n Paso 2: Batir huevos con sal. \n Paso 3: Cocinar todo junto como una tortilla.",
-        "imagen": "img/tortilla_papa.jpg"
-    },
-    {
-        "nombre": "Arroz con huevo",
-        "ingredientes": [
-            "arroz blanco",
-            "huevo",
-            "aceite",
-            "sal"
-        ],
-        "restricciones": {
-            "calorias": 450,
             "carbohidratos": 50,
-            "proteinas": 12,
+            "proteinas": 30,
             "grasas": 20,
+            "azucares": 0,
+            "vegetariano": false
+        },
+        "instrucciones": "Paso 1: Asar o cocer el jitomate/tomate junto con la cebolla\n Paso 2: Una vez asados o cocidos, colocarlos en la licuadora y si se tiene el ajo agregarlo, además de sazonar con algo de sal y de ser necesario un poco de agua\n Paso 3: Romper los huevos, colocarlos en un recipiente, sazonarlos con sal y batirlos\n Paso 4: Cocer los huevos a fuego lento con un poco de aceite.\n Paso 5: Una vez los huevos tengan una concistencia firme vaciar la salsa y dejar hervir.\n Listo! una  vez que hierve esta listo para comer, puedes acompañarlo con tortillas, frijoles o lo que gustes y tendras una comida deliciosa, espero que la disfrutes.",
+        "imagen": "img/arroz_verduras.jpg"
+    },
+    {
+        "id": 3,
+        "nombre": "Guacamole",
+        "ingredientes": [
+            {
+                "nombre": "chiles",
+                "sustitutos": ["chile verde", "chile serrano"]
+            },
+            "aguacate",
+            "jitomate",
+            "cebolla",
+            "limón",
+            "pepino*",
+            "cilantro",
+            "aceite de oliva*"
+        ],
+        "restricciones": {
+            "calorias": 200,
+            "carbohidratos": 10,
+            "proteinas": 2,
+            "grasas": 18,
             "azucares": 1,
-            "sin_gluten": true
-        },
-        "instrucciones": "Paso 1: Cocinar el arroz. \n Paso 2: Freír el huevo. \n Paso 3: Servir el huevo sobre el arroz.",
-        "imagen": "img/arroz_huevo.jpg"
-    },
-    {
-        "nombre": "Molletes",
-        "ingredientes": [
-            "pan bolillo",
-            "frijoles refritos",
-            "queso"
-        ],
-        "restricciones": {
-            "calorias": 500,
-            "carbohidratos": 40,
-            "proteinas": 15,
-            "grasas": 22,
-            "azucares": 2,
             "vegetariano": true
         },
-        "instrucciones": "Paso 1: Cortar el bolillo a la mitad. \n Paso 2: Untar frijoles y agregar queso. \n Paso 3: Hornear hasta que el queso se derrita.",
-        "imagen": "img/molletes.jpg"
-    },
-    {
-        "nombre": "Avena con plátano",
-        "ingredientes": [
-            "avena",
-            "leche",
-            "plátano"
-        ],
-        "restricciones": {
-            "calorias": 350,
-            "carbohidratos": 45,
-            "proteinas": 10,
-            "grasas": 10,
-            "azucares": 14,
-            "vegetariano": true
-        },
-        "instrucciones": "Paso 1: Cocinar la avena con leche. \n Paso 2: Agregar plátano rebanado por encima.",
-        "imagen": "img/avena_platano.jpg"
+        "instrucciones": "Paso 1:Picar finamente el jitomate, cebolla, cilantro y el pepino (si se tiene).\n Paso 2:Agregar el aguacate y comenzar a machacarlo y a mezclarlo con una cuchara.\n Paso 3: Agregar el jugo de limón y sal y volver a mezclar todo.\n Paso extra: Si se tiene aceita de oliva agregar un poco y volver a mezclar\n Listo! Tienes tu guacamole listo para disfrutar y acompañar con una tostada, unos totopos o cualquier complemento de tu agrado, espero lo disfrutes.",
+        "imagen": "img/guacamole.jpg"
     }
 ]
