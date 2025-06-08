@@ -23,6 +23,176 @@ const receta = {
         vegetariano: false
     }
 };
+const chatContainer = document.querySelector('#chatContainer');
+const fullModal = document.querySelector('#fullScreenModal');
+const modalTitle = fullModal.querySelector('#modalTittle');
+const modalImageContainer = fullModal.querySelector('#modalImageContainer');
+const modalStepsContainer = fullModal.querySelector('#modalStepsContainer');
+
+
+
+//? Delegation for view-moreButtons
+chatContainer.addEventListener('click', e => {
+    if (e.target.classList.contains('ver-receta-btn')) {
+        const id = e.target.dataset.index;
+        openModalWithReceta(id);
+    }
+});
+
+
+
+const openModalWithReceta = id => {
+    const receta = recetas.find(r => r.id == id);
+    if (!receta) return;
+
+    // Configurar el contenido
+    modalTitle.textContent = receta.nombre;
+    
+    modalImageContainer.innerHTML = `
+        <div class="relative w-full h-64 md:h-96 overflow-hidden rounded-lg shadow-md">
+            <img src="/resources/${receta.imagen}" alt="Imagen de ${receta.nombre}" 
+                 class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 opacity-0"
+                 onload="this.classList.remove('opacity-0')" />
+        </div>
+    `;
+
+    const ingredientesList = receta.ingredientes
+        .map(ingrediente => `<li class="py-1 px-3 rounded-md hover:bg-green-50 transition-colors duration-200"><span class="text-green-600 mr-2">•</span>${ingrediente}</li>`)
+        .join('');
+
+    const instruccionesFormateadas = receta.instrucciones
+        .split('\n')
+        .map(line => line.trim())
+        .filter(line => line.length > 0)
+        .map((line, i) => `<div class="flex mb-3"><span class="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-green-100 text-green-700 font-bold mr-3">${i+1}</span><p class="text-gray-700">${line}</p></div>`)
+        .join('');
+
+    modalStepsContainer.innerHTML = `
+        <div class="bg-gray-50 rounded-lg overflow-hidden">
+            <button class="accordion-btn w-full p-4 text-left flex justify-between items-center hover:bg-gray-100 transition-colors duration-200">
+                <h3 class="text-xl font-semibold text-gray-800 flex items-center">
+                    <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                    </svg>
+                    Ingredientes
+                </h3>
+                <svg class="accordion-icon w-5 h-5 text-gray-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </button>
+            <div class="accordion-content overflow-hidden transition-[max-height] duration-300 ease-in-out max-h-0">
+                <div class="px-4 pb-4">
+                    <!-- Aquí va tu lista o contenido -->
+                    <ul class="space-y-2">${ingredientesList}</ul>
+                </div>
+            </div>
+        </div>
+        <div class="bg-gray-50 rounded-lg overflow-hidden mt-4">
+            <button class="accordion-btn w-full p-4 text-left flex justify-between items-center hover:bg-gray-100 transition-colors duration-200">
+                <h3 class="text-xl font-semibold text-gray-800 flex items-center">
+                    <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                    Preparación
+                </h3>
+                <svg class="accordion-icon w-5 h-5 text-gray-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </button>
+            <div class="accordion-content overflow-hidden transition-[max-height] duration-300 ease-in-out max-h-0">
+                <div class="px-4 pb-4">
+                    <div class="space-y-4">${instruccionesFormateadas}</div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    // Mostrar modal con animación
+    fullModal.classList.remove('hidden');
+    setTimeout(() => {
+        fullModal.classList.remove('opacity-0');
+        fullModal.classList.remove('translate-y-[-20px]');
+        fullModal.querySelector('.container > div').classList.remove('scale-95');
+    }, 10);
+
+    // Inicializar acordeones
+    initAccordions();
+}
+
+function initAccordions() {
+    const accordionBtns = document.querySelectorAll('.accordion-btn');
+
+    accordionBtns.forEach(btn => {
+        const content = btn.nextElementSibling;
+        const icon = btn.querySelector('.accordion-icon');
+
+        // Inicializa en cerrado
+        content.style.maxHeight = '0px';
+        content.classList.add('overflow-hidden', 'transition-[max-height]', 'duration-300', 'ease-in-out');
+
+        btn.addEventListener('click', () => {
+            const isOpen = content.style.maxHeight !== '0px';
+
+            if (isOpen) {
+                // Cerrar
+                content.style.maxHeight = '0px';
+                icon.classList.remove('rotate-180');
+            } else {
+                // Abrir
+                content.style.maxHeight = content.scrollHeight + 'px';
+                icon.classList.add('rotate-180');
+            }
+        });
+
+        // Abrir "Ingredientes" por defecto
+        if (btn.textContent.includes('Ingredientes')) {
+            btn.click();
+        }
+    });
+}
+
+
+// Cerrar modal
+const closeModal = () => {
+    fullModal.classList.add('opacity-0');
+    fullModal.classList.add('translate-y-[-20px]');
+    fullModal.querySelector('.container > div').classList.add('scale-95');
+    setTimeout(() => {
+        fullModal.classList.add('hidden');
+    }, 300);
+}
+
+// Event listeners
+closeFullScreenModal.addEventListener('click', closeModal);
+closeFullScreenModalBottom.addEventListener('click', closeModal);
+
+// Función para descargar la receta
+document.getElementById('downloadRecipeBtn').addEventListener('click', () => {
+    const recipeName = document.getElementById('modalTittle').textContent;
+    const ingredients = Array.from(document.querySelectorAll('#modalStepsContainer ul li'))
+        .map(li => li.textContent.trim()).join('\n');
+    const instructions = Array.from(document.querySelectorAll('#modalStepsContainer .accordion-content div p'))
+        .map((p, i) => `${i+1}. ${p.textContent.trim()}`).join('\n\n');
+    
+    const content = `
+        ${recipeName}\n\n
+        INGREDIENTES:\n${ingredients}\n\n
+        PREPARACIÓN:\n${instructions}
+    `;
+    
+    const blob = new Blob([content], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${recipeName.replace(/\s+/g, '_')}_receta.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+});
+
+
+
 
 
 // ? Function to serach the ingredients & load on the object
@@ -178,9 +348,9 @@ const sendIngredients = () => {
 };
 
 function getNullableValue(selector) {
-        const val = document.querySelector(selector).value;
-        return val === '' ? null : parseFloat(val);
-    }
+    const val = document.querySelector(selector).value;
+    return val === '' ? null : parseFloat(val);
+}
 
 
 const sendMessage = (type, message, success = true) => {
@@ -237,8 +407,8 @@ const sendMessage = (type, message, success = true) => {
             startDelay: 300,
             cursor: false,
         })
-        .type(message)
-        .go();
+            .type(message)
+            .go();
     }
 };
 
@@ -340,7 +510,9 @@ const loadMessageChef = data => {
         <div class="receta-preview">
             <strong>${receta.nombre}</strong><br>
             <small>🧂 Ingredientes: ${ingredientesTruncados}</small><br>
-            <a href="receta.html?id=${receta.id}" class="ver-receta-link bg-green-500 rounded-full px-4 py-2 inline-block mt-2">👀 Ver receta</a>
+            <button class="ver-receta-btn bg-green-500 rounded-2xl px-4 py-2 mt-2 text-white" data-index="${receta.id}">
+            👀Ver receta
+            </button>
         </div>
         `;
     });

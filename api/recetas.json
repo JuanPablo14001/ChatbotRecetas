@@ -17,7 +17,7 @@
             "vegetariano": true
         },
         "instrucciones": "Paso 1: Cocinar el arroz.\n Paso 2: Picar las verduras en cuadros pequeños. \n Paso 3: En un sarten con poco aceite, sofreir las verduras",
-        "imagen": "img/arroz_verduras.jpg"
+        "imagen": "img/arroz_verduras.avif"
     },
     {
         "id": 2,
@@ -50,7 +50,7 @@
             "vegetariano": false
         },
         "instrucciones": "Paso 1: Asar o cocer el jitomate/tomate junto con la cebolla\n Paso 2: Una vez asados o cocidos, colocarlos en la licuadora y si se tiene el ajo agregarlo, además de sazonar con algo de sal y de ser necesario un poco de agua\n Paso 3: Romper los huevos, colocarlos en un recipiente, sazonarlos con sal y batirlos\n Paso 4: Cocer los huevos a fuego lento con un poco de aceite.\n Paso 5: Una vez los huevos tengan una concistencia firme vaciar la salsa y dejar hervir.\n Listo! una  vez que hierve esta listo para comer, puedes acompañarlo con tortillas, frijoles o lo que gustes y tendras una comida deliciosa, espero que la disfrutes.",
-        "imagen": "img/arroz_verduras.jpg"
+        "imagen": "img/huevos_salsa.jpg" 
     },
     {
         "id": 3,
@@ -77,6 +77,6 @@
             "vegetariano": true
         },
         "instrucciones": "Paso 1:Picar finamente el jitomate, cebolla, cilantro y el pepino (si se tiene).\n Paso 2:Agregar el aguacate y comenzar a machacarlo y a mezclarlo con una cuchara.\n Paso 3: Agregar el jugo de limón y sal y volver a mezclar todo.\n Paso extra: Si se tiene aceita de oliva agregar un poco y volver a mezclar\n Listo! Tienes tu guacamole listo para disfrutar y acompañar con una tostada, unos totopos o cualquier complemento de tu agrado, espero lo disfrutes.",
-        "imagen": "img/guacamole.jpg"
+        "imagen": "img/guacamole.webp"
     }
 ]
