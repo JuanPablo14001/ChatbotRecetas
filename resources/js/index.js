@@ -1,7 +1,10 @@
 
+
 document.addEventListener('DOMContentLoaded', () => {
     loadIngredients();
     sendIngredients();
+    darkMode();
+    asideBarEvent();
 });
 
 // * Globals
@@ -47,34 +50,34 @@ const openModalWithReceta = id => {
 
     // Configurar el contenido
     modalTitle.textContent = receta.nombre;
-    
+
     modalImageContainer.innerHTML = `
         <div class="relative w-full h-64 md:h-96 overflow-hidden rounded-lg shadow-md">
             <img src="/resources/${receta.imagen}" alt="Imagen de ${receta.nombre}" 
-                 class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 opacity-0"
-                 onload="this.classList.remove('opacity-0')" />
+                class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 opacity-0"
+                onload="this.classList.remove('opacity-0')" />
         </div>
     `;
 
     const ingredientesList = receta.ingredientes
-        .map(ingrediente => `<li class="py-1 px-3 rounded-md hover:bg-green-50 transition-colors duration-200"><span class="text-green-600 mr-2">•</span>${ingrediente}</li>`)
+        .map(ingrediente => `<li class="py-1 px-3 rounded-md transition-colors duration-200"><span class="text-red-500 mr-2">•</span>${ingrediente}</li>`)
         .join('');
 
     const instruccionesFormateadas = receta.instrucciones
         .split('\n')
         .map(line => line.trim())
         .filter(line => line.length > 0)
-        .map((line, i) => `<div class="flex mb-3"><span class="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-green-100 text-green-700 font-bold mr-3">${i+1}</span><p class="text-gray-700">${line}</p></div>`)
+        .map((line, i) => `<div class="flex mb-3"><span class="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-red-200 dark:bg-red-300 text-red-500 dark:text-red-600 font-bold mr-3">${i + 1}</span><p class="text-gray-800 dark:text-gray-200">${line}</p></div>`)
         .join('');
 
     modalStepsContainer.innerHTML = `
-        <div class="bg-gray-50 rounded-lg overflow-hidden">
-            <button class="accordion-btn w-full p-4 text-left flex justify-between items-center hover:bg-gray-100 transition-colors duration-200">
-                <h3 class="text-xl font-semibold text-gray-800 flex items-center">
-                    <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <div class="bg-gray-200 dark:bg-[#2A2A2A] rounded-lg overflow-hidden">
+            <button class="accordion-btn  w-full p-4 text-left flex justify-between items-center hover:bg-gray-300 dark:hover:bg-[#1d1d1d] transition-colors duration-200">
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-300 flex items-center">
+                    <svg class="w-5 h-5 text-[#D32F2F] dark:text-[#C62828] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
                     </svg>
-                    Ingredientes
+                    Ingredientes 
                 </h3>
                 <svg class="accordion-icon w-5 h-5 text-gray-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -84,13 +87,13 @@ const openModalWithReceta = id => {
                 <div class="px-4 pb-4">
                     <!-- Aquí va tu lista o contenido -->
                     <ul class="space-y-2">${ingredientesList}</ul>
-                </div>
+                </div> 
             </div>
         </div>
-        <div class="bg-gray-50 rounded-lg overflow-hidden mt-4">
-            <button class="accordion-btn w-full p-4 text-left flex justify-between items-center hover:bg-gray-100 transition-colors duration-200">
-                <h3 class="text-xl font-semibold text-gray-800 flex items-center">
-                    <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <div class="bg-gray-200 dark:bg-[#2A2A2A] rounded-lg overflow-hidden mt-4">
+            <button class="accordion-btn  w-full p-4 text-left flex justify-between items-center hover:bg-gray-300 dark:hover:bg-[#1d1d1d] transition-colors duration-200"> 
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-300 flex items-center">
+                    <svg class="w-5 h-5 text-[#D32F2F] dark:text-[#C62828] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                     </svg>
                     Preparación
@@ -172,14 +175,14 @@ document.getElementById('downloadRecipeBtn').addEventListener('click', () => {
     const ingredients = Array.from(document.querySelectorAll('#modalStepsContainer ul li'))
         .map(li => li.textContent.trim()).join('\n');
     const instructions = Array.from(document.querySelectorAll('#modalStepsContainer .accordion-content div p'))
-        .map((p, i) => `${i+1}. ${p.textContent.trim()}`).join('\n\n');
-    
+        .map((p, i) => `${i + 1}. ${p.textContent.trim()}`).join('\n\n');
+
     const content = `
         ${recipeName}\n\n
         INGREDIENTES:\n${ingredients}\n\n
         PREPARACIÓN:\n${instructions}
     `;
-    
+
     const blob = new Blob([content], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -225,7 +228,7 @@ const loadIngredients = () => {
         filtered.forEach(ingredient => {
             const li = document.createElement("li");
             li.textContent = ingredient;
-            li.className = "bg-green-100 hover:bg-green-200 text-sm px-3 py-1 rounded cursor-pointer";
+            li.className = "bg-[#FDD8D4] dark:bg-[#992A2A] hover:bg-[#FBB9B2] dark:hover:bg-[#B93C3C]  text-sm px-3 py-1 rounded cursor-pointer";
             li.addEventListener("click", () => addIngredient(ingredient));
             suggestionsList.appendChild(li);
         });
@@ -247,7 +250,7 @@ const loadIngredients = () => {
         ingredientsContainer.innerHTML = "";
         receta.ingredientes.forEach(ing => {
             const span = document.createElement("span");
-            span.className = "bg-gray-200 text-sm text-gray-800 px-3 py-1 rounded-full flex items-center";
+            span.className = "bg-gray-300 dark:bg-[#2E2E2E] text-sm text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full flex items-center";
             span.innerHTML = `${ing}
                 <button class="ml-2 text-gray-500 hover:text-red-500 font-bold text-lg btn-remove">×</button>`;
             ingredientsContainer.appendChild(span);
@@ -358,12 +361,12 @@ const sendMessage = (type, message, success = true) => {
     const chatContainer = document.querySelector('section.flex-1');
 
     const messageDiv = document.createElement('div');
-    messageDiv.className = `shadow-md rounded-lg p-4 w-full max-w-xl mb-2`;
+    messageDiv.className = `shadow-md  rounded-lg p-4 w-full max-w-xl mb-2 shadow-gray-400 dark:shadow-[#ffffff30]`;
 
     if (type === 'user') {
-        messageDiv.classList.add('bg-green-100', 'ml-auto');
+        messageDiv.classList.add('bg-[#FDD8D4]', 'dark:bg-[#992A2A]', 'ml-auto');
     } else {
-        messageDiv.classList.add('bg-gray-200', 'mr-auto');
+        messageDiv.classList.add('bg-gray-200', 'dark:bg-[#2A2A2A]', 'mr-auto');
     }
 
     const messageContent = document.createElement('div');
@@ -371,7 +374,7 @@ const sendMessage = (type, message, success = true) => {
 
     // Contenedor donde TypeIt escribirá (importante: debe estar vacío)
     const textContainer = document.createElement('div');
-    textContainer.className = 'text-gray-800';
+    textContainer.className = 'text-gray-800 dark:text-gray-200';
 
     const image = document.createElement('img');
     image.src = type === 'user' ? 'img/logo1.svg' : 'img/logo.svg';
@@ -399,7 +402,7 @@ const sendMessage = (type, message, success = true) => {
     }
 
     // Efecto de escritura solo para el bot (con HTML interpretado)
-    if (type === 'bot' && success) {
+    if (type === 'bot') {
         new TypeIt(textContainer, {
             html: true, // ¡Crucial para que renderice HTML!
             speed: 15,
@@ -492,9 +495,11 @@ function loadMessageUser() {
 
 const loadMessageChef = data => {
     if (!data.success) {
+        console.log("aqui");
+        const mes = `<p>¡Lo siento! 😞 No pude encontrar una receta con las instrucciones dadas.</p>`
         return {
             success: false,
-            message: "¡Lo siento! 😞 No pude encontrar una receta con las instrucciones dadas."
+            message: mes
         };
     }
 
@@ -510,7 +515,7 @@ const loadMessageChef = data => {
         <div class="receta-preview">
             <strong>${receta.nombre}</strong><br>
             <small>🧂 Ingredientes: ${ingredientesTruncados}</small><br>
-            <button class="ver-receta-btn bg-green-500 rounded-2xl px-4 py-2 mt-2 text-white" data-index="${receta.id}">
+            <button class="ver-receta-btn bg-[#D32F2F] dark:bg-[#C62828] hover:bg-[#B71C1C] dark:hover:bg-[#AD1D1D] rounded-2xl px-4 py-2 mt-2 text-white" data-index="${receta.id}">
             👀Ver receta
             </button>
         </div>
@@ -524,6 +529,41 @@ const loadMessageChef = data => {
         message: message
     };
 };
+
+
+const darkMode = () => {
+    const toggle = document.querySelector('#darkModeToggle');
+    const html = document.documentElement;
+
+    // Si el usuario ya tenía una preferencia
+    if (localStorage.getItem('theme') === 'dark') {
+        html.classList.add('dark');
+        toggle.checked = true;
+    }
+
+    toggle.addEventListener('change', () => {
+        if (toggle.checked) {
+            html.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            html.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+        }
+    });
+}
+
+
+const asideBarEvent = () => {
+    const toggleBtn = document.getElementById("toggleSidebar");
+    const sidebar = document.getElementById("sidebar");
+    
+
+    toggleBtn.addEventListener("click", () => {
+        const isHidden = sidebar.classList.toggle("-translate-x-full");
+        toggleBtn.textContent = isHidden ? "☰" : "✕";
+    });
+};
+
 
 
 

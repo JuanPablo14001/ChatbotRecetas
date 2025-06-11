@@ -9,7 +9,7 @@
     <style>
         .toggle-checkbox:checked {
             right: 0;
-            border-color: #059669;
+            border-color: #EA580C; /* Naranja en lugar de verde */
         }
 
         .toggle-checkbox {
@@ -23,10 +23,10 @@
     </style>
 </head>
 
-<body class="flex flex-col h-screen overflow-hidden font-sans">
+<body class="flex flex-col h-screen overflow-hidden font-sans bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100">
 
-    <!-- HEADER -->
-    <header class="w-full p-3 bg-[#059669] z-30 relative">
+    <!-- HEADER --> 
+    <header class="w-full p-3 bg-[#D32F2F] dark:bg-[#C62828] z-30 relative"> <!-- Cambiado a naranja -->
         <div class="max-w-5xl mx-auto flex justify-between items-center">
             <!-- Botón hamburguesa -->
             <div class="block md:hidden">
@@ -41,7 +41,7 @@
 
             <!-- Subtítulo (solo escritorio) -->
             <div class="hidden md:block">
-                <p class="text-gray-200 font-light">Tu asistente personal para cocina</p>
+                <p class="text-orange-100 font-light">Tu asistente personal para cocina</p> <!-- Cambiado a naranja claro -->
             </div>
         </div>
     </header>
@@ -49,138 +49,138 @@
     <!-- MAIN -->
     <main class="flex flex-1 relative overflow-hidden">
 
-        <!-- SIDEBAR ÚNICO -->
-        <!-- ASIDE ACTUALIZADO -->
+        <!-- SIDEBAR -->
         <aside id="sidebar"
-            class="fixed md:static top-20 left-0 w-full md:w-80 h-[calc(100%-4rem)] md:h-full bg-white border-r border-gray-200 py-3 transform md:transform-none -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out z-40 md:z-auto overflow-y-auto">
+            class="fixed md:static top-20 left-0 w-full md:w-80 h-[calc(100%-4rem)] md:h-full dark:bg-[#1F1F1F] bg-[#ECECEC] border-r border-gray-300 dark:border-gray-700 py-3 mb-3 transform md:transform-none -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out z-40 md:z-auto overflow-y-auto">
             <div class="flex flex-col w-full px-4">
-                <h2 class="text-2xl font-semibold border-b border-gray-300 pb-2 mb-4">Preferencias</h2>
+                <h2 class="text-lg  md:text-2xl font-semibold border-b border-gray-400 dark:border-gray-100 pb-2 mb-4">Preferencias</h2>
 
                 <!-- GRUPO DE INPUTS -->
                 <div class="space-y-4">
                     <!-- Reutilizable para calorías, carbohidratos, etc. -->
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Calorías (kcal)</label>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Calorías (kcal)</label>
                         <div class="flex space-x-2">
                             <input type="number" id="cal_min" placeholder="Min"
-                                class="w-1/2 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                                class="w-1/2 bg-[#ffffff] border border-[#BDBDBD] dark:border-[#757575] rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#D32F2F] dark:bg-[#2E2E2E] dark:text-white">
                             <input type="number" id="cal_max" placeholder="Max"
-                                class="w-1/2 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                                class="w-1/2 bg-[#ffffff] border border-[#BDBDBD] dark:border-[#757575] rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#D32F2F] dark:bg-[#2E2E2E] dark:text-white">
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Carbohidratos (g)</label>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Carbohidratos (g)</label>
                         <div class="flex space-x-2">
                             <input type="number" id="carbo_min" placeholder="Min"
-                                class="w-1/2 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                                class="w-1/2 bg-[#ffffff] border border-[#BDBDBD] dark:border-[#757575] rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#D32F2F] dark:bg-[#2E2E2E] dark:text-white">
                             <input type="number" id="carbo_max" placeholder="Max"
-                                class="w-1/2 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                                class="w-1/2 bg-[#ffffff] border border-[#BDBDBD] dark:border-[#757575] rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#D32F2F] dark:bg-[#2E2E2E] dark:text-white">
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Proteínas (g)</label>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Proteínas (g)</label>
                         <div class="flex space-x-2">
                             <input type="number" id="prote_min" placeholder="Min"
-                                class="w-1/2 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                                class="w-1/2 bg-[#ffffff] border border-[#BDBDBD] dark:border-[#757575] rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#D32F2F] dark:bg-[#2E2E2E] dark:text-white">
                             <input type="number" id="prote_max" placeholder="Max"
-                                class="w-1/2 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                                class="w-1/2 bg-[#ffffff] border border-[#BDBDBD] dark:border-[#757575] rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#D32F2F] dark:bg-[#2E2E2E] dark:text-white">
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Grasas (g)</label>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Grasas (g)</label>
                         <div class="flex space-x-2">
                             <input type="number" id="grasa_min" placeholder="Min"
-                                class="w-1/2 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                                class="w-1/2 bg-[#ffffff] border border-[#BDBDBD] dark:border-[#757575] rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#D32F2F] dark:bg-[#2E2E2E] dark:text-white">
                             <input type="number" id="grasa_max" placeholder="Max"
-                                class="w-1/2 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                                class="w-1/2 bg-[#ffffff] border border-[#BDBDBD] dark:border-[#757575] rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#D32F2F] dark:bg-[#2E2E2E] dark:text-white">
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Azúcares (g)</label>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Azúcares (g)</label>
                         <div class="flex space-x-2">
                             <input type="number" id="azuc_min" placeholder="Min"
-                                class="w-1/2 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                                class="w-1/2 bg-[#ffffff] border border-[#BDBDBD] dark:border-[#757575] rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#D32F2F] dark:bg-[#2E2E2E] dark:text-white">
                             <input type="number" id="azuc_max" placeholder="Max"
-                                class="w-1/2 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                                class="w-1/2 bg-[#ffffff] border border-[#BDBDBD] dark:border-[#757575] rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#D32F2F] dark:bg-[#2E2E2E] dark:text-white">
                         </div>
                     </div>
                 </div>
 
                 <!-- TOGGLE VEGETARIANO -->
                 <div class="flex items-center justify-between mt-6">
-                    <label for="vegetarianToggle" class="text-sm font-medium text-gray-700">Vegetariano</label>
+                    <label for="vegetarianToggle" class="text-sm font-medium text-gray-700 dark:text-gray-300">Vegetariano</label>
                     <div
                         class="relative inline-block w-11 mr-2 align-middle select-none transition duration-200 ease-in">
                         <input type="checkbox" name="vegetarian" id="vegetarianToggle"
                             class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer peer">
                         <label for="vegetarianToggle"
-                            class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 peer-checked:bg-green-500 cursor-pointer"></label>
+                            class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 peer-checked:bg-[#D32F2F] cursor-pointer dark:bg-gray-600 dark:peer-checked:bg-[#C62828]"></label>
+                    </div>
+                </div>
+                <!-- TOGGLE DARK MODE -->
+                <div class="flex items-center justify-between my-3 border-t pt-4 border-gray-400 dark:border-gray-100">
+                    <label for="darkModeToggle" class="text-sm font-medium text-gray-700 dark:text-gray-300">Modo oscuro</label>
+                    <div
+                        class="relative inline-block w-11 mr-2 align-middle select-none transition duration-200 ease-in">
+                        <input type="checkbox" id="darkModeToggle"
+                            class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer peer">
+                        <label for="darkModeToggle"
+                            class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 peer-checked:bg-orange-500 cursor-pointer dark:bg-gray-600 dark:peer-checked:bg-[#C62828]"></label>
                     </div>
                 </div>
             </div>
         </aside>
 
-
         <!-- CONTENIDO + INPUT -->
         <div class="flex-1 flex flex-col overflow-hidden">
             <!-- CHAT -->
-            <section id="chatContainer" class="flex-1 overflow-auto p-6 bg-gray-50 space-y-4">
-                <div class="bg-white  shadow-md left-0 rounded-lg p-4 w-full max-w-xl">
+            <section id="chatContainer" class="flex-1 overflow-auto p-6 bg-[#FFF8F6] dark:bg-[#181818] space-y-4">
+                <div class="bg-gray-200 dark:bg-[#2A2A2A] shadow-md shadow-gray-400 dark:shadow-[#ffffff20] left-0 rounded-lg p-4 w-full max-w-xl">
                     <div class="flex items-start">
                         <img src="img/logo1.svg" alt="Logo" class="w-10 h-10 rounded-full mr-3">
-                        <p class="text-gray-800">Hola!, Soy Chefsini, tu asistente personal de cocina. ¿En qué puedo
-                            ayudarte hoy?</p>
-                        </p>
+                        <p class="text-gray-800 dark:text-gray-200">Hola!, Soy Chefsini, tu asistente personal de cocina. ¿En qué puedo ayudarte hoy?</p>
                     </div>
                 </div>
             </section>
 
             <!-- INPUT PEGADO ABAJO -->
-            <section class="bg-white p-4 border-t border-gray-200 sticky bottom-0 z-10">
+            <section class="bg-[#ECECEC] dark:bg-[#1F1F1F] p-4 border-t border-gray-300 dark:border-gray-600 sticky bottom-0 z-10">
                 <div class="w-full max-w-5xl mx-auto">
                     <!-- LISTA DE INGREDIENTES -->
                     <div id="ingredientsContainer" class="flex flex-wrap gap-2 mb-2 max-h-32 overflow-y-auto pr-2">
                         <!-- Aquí se insertarán los ingredientes dinámicamente -->
-                        <!-- <span class="bg-gray-200 text-sm text-gray-800 px-3 py-1 rounded-full flex items-center">
-                            Tomate
-                            <button onclick="removeIngredient(this)"
-                                class="ml-2 text-gray-500 hover:text-red-500 font-bold text-xs">×</button>
-                        </span> -->
                     </div>
                     <!-- SUGERENCIAS DE INGREDIENTES -->
                     <div class="w-full mx-auto mb-2">
-                        <!-- Añadido max-h-40 (equivalente a 10rem o 160px) y overflow-y-auto -->
                         <ul id="suggestionsList"
                             class="mb-2 max-w-5xl mx-auto flex flex-wrap gap-2 max-h-40 overflow-y-auto"></ul>
                     </div>
 
-                    <div class="flex border rounded-md overflow-hidden shadow-sm bg-white">
+                    <div class="flex border rounded-md overflow-hidden shadow-sm bg-white dark:bg-[#2E2E2E]">
                         <textarea id="messageInput"
                             placeholder="Escribe tus ingredientes y seleccionalos cuando lo encuentres" rows="1"
-                            class="flex-1 resize-none px-4 py-2 outline-none w-full overflow-hidden"></textarea>
-                        <button class="bg-green-600 text-white px-4 hover:bg-green-700 opacity-30" id="sendBtn"
+                            class="flex-1 resize-none px-4 py-2 outline-none w-full overflow-hidden dark:bg-[#2E2E2E] dark:text-white"></textarea>
+                        <button class="bg-[#D32F2F] dark:bg-[#C62828] hover:bg-[#B71C1C] dark:hover:bg-[#AD1D1D] text-white px-4 hover:bg-[#D6D6D6]dark:hover:bg-[#333333] opacity-30" id="sendBtn"
                             disabled>➤</button>
                     </div>
                 </div>
             </section>
         </div>
-
     </main>
-    <!-- Contenedor donde se mostrarán las recetas -->
-    <!-- Modal Pantalla Completa -->
+
+    <!-- Modal Pantalla Completa -->  
     <div id="fullScreenModal"
-        class="fixed inset-0 z-50 w-full h-full overflow-y-auto bg-gray-800 bg-opacity-70 backdrop-blur-sm hidden opacity-0 transition-all duration-300 ease-in-out transform translate-y-[-20px]">
+        class="fixed inset-0 z-50 w-full h-full overflow-y-auto bg-[#0000007f] bg-opacity-50 backdrop-blur-sm hidden transition-all duration-300 ease-in-out transform translate-y-[-20px]"> 
         <div class="container mx-auto max-w-6xl min-h-screen flex items-center justify-center p-4">
             <div
-                class="bg-white rounded-xl shadow-2xl w-full overflow-hidden transition-all duration-300 transform scale-95">
+                class="bg-[#f8f3f3] dark:bg-[#181818] rounded-xl shadow-2xl w-full overflow-hidden transition-all duration-300 transform scale-95">
                 <!-- Header del modal -->
                 <div
-                    class="flex justify-between items-center p-4 border-b border-gray-200 bg-gradient-to-r from-green-50 to-gray-50">
-                    <h2 id="modalTittle" class="text-2xl md:text-3xl font-bold text-green-700"></h2>
+                    class="flex justify-between items-center p-4 border-b border-gray-200 dark:border-gray-700 bg-[#f0f0f0] dark:bg-[#1f1f1f]">
+                    <h2 id="modalTittle" class="text-2xl md:text-3xl font-bold text-[#D32F2F] dark:text-[#C62828]"></h2>
                     <button id="closeFullScreenModal"
                         class="text-gray-500 hover:text-red-600 text-3xl font-bold focus:outline-none transition-colors duration-200">&times;</button>
                 </div>
@@ -204,7 +204,7 @@
                 </div>
 
                 <!-- Footer del modal -->
-                <div class="p-4 border-t border-gray-200 bg-gray-50 flex justify-between items-center">
+                <div class="p-4  border-t border-gray-200 dark:border-gray-700 bg-[#f8f3f3] dark:bg-[#181818] flex justify-between items-center">
                     <button id="downloadRecipeBtn"
                         class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 flex items-center">
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -215,7 +215,7 @@
                         Descargar
                     </button>
                     <button id="closeFullScreenModalBottom"
-                        class="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
+                        class="px-4 py-2 bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-white rounded-lg hover:bg-gray-300 dark:hover:bg-gray-500 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
                         Cerrar
                     </button>
                 </div>
@@ -223,11 +223,8 @@
         </div>
     </div>
 
-
     <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/typeit@8.8.7/dist/index.umd.js"></script>
-
     <script type="module" src="js/index.js"></script>
 </body>
-
 </html>
