@@ -26,8 +26,11 @@ const receta = {
         vegetariano: false
     }
 };
-const chatContainer = document.querySelector('#chatContainer');
 const fullModal = document.querySelector('#fullScreenModal');
+const downloadBtn = document.querySelector('#downloadRecipeBtn');
+const chatContainer = document.querySelector('#chatContainer');
+
+
 const modalTitle = fullModal.querySelector('#modalTittle');
 const modalImageContainer = fullModal.querySelector('#modalImageContainer');
 const modalStepsContainer = fullModal.querySelector('#modalStepsContainer');
@@ -50,7 +53,7 @@ const openModalWithReceta = id => {
 
     // Configurar el contenido
     modalTitle.textContent = receta.nombre;
-
+    downloadBtn.dataset.id= receta.id;
     modalImageContainer.innerHTML = `
         <div class="relative w-full h-64 md:h-96 overflow-hidden rounded-lg shadow-md">
             <img src="/resources/${receta.imagen}" alt="Imagen de ${receta.nombre}" 
@@ -170,28 +173,32 @@ closeFullScreenModal.addEventListener('click', closeModal);
 closeFullScreenModalBottom.addEventListener('click', closeModal);
 
 // Función para descargar la receta
-document.getElementById('downloadRecipeBtn').addEventListener('click', () => {
-    const recipeName = document.getElementById('modalTittle').textContent;
-    const ingredients = Array.from(document.querySelectorAll('#modalStepsContainer ul li'))
-        .map(li => li.textContent.trim()).join('\n');
-    const instructions = Array.from(document.querySelectorAll('#modalStepsContainer .accordion-content div p'))
-        .map((p, i) => `${i + 1}. ${p.textContent.trim()}`).join('\n\n');
+downloadBtn.addEventListener('click', ()=> {
+    console.log("si");
+    const recetaId = downloadRecipeBtn.dataset.id;
+    const ingredientes = Array.from(
+        modalStepsContainer.querySelectorAll("ul li")
+    ).map(el => el.textContent.trim());
+    const url = 'http://127.0.0.1:5000/api/generar-pdf';
+    const body = JSON.stringify({
+            id: recetaId,
+            ingredientes_modal: ingredientes
+        })
 
-    const content = `
-        ${recipeName}\n\n
-        INGREDIENTES:\n${ingredients}\n\n
-        PREPARACIÓN:\n${instructions}
-    `;
-
-    const blob = new Blob([content], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${recipeName.replace(/\s+/g, '_')}_receta.txt`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: body
+    })
+    .then(res => res.blob())
+    .then(blob => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `receta${modalTitle.textContent}.pdf`;
+        a.click();
+        URL.revokeObjectURL(url);
+    }); 
 });
 
 
@@ -607,7 +614,7 @@ const allIngredients = [
     "mantequilla", "nata", "crema agria", "crema batida", "requesón",
 
     // Legumbres y leguminosas
-    "frijoles", "lentejas", "garbanzos", "soya", "edamame", "alubias", "habas", "guisantes",
+    "frijoles", "frijoles refritos", "lentejas", "garbanzos", "soya", "edamame", "alubias", "habas", "guisantes",
 
     // Cereales, harinas y tortillas
     "arroz", "trigo", "maíz", "avena", "cebada", "centeno", "mijo", "quinoa", "amaranto",

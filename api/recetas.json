@@ -17,7 +17,7 @@
             "vegetariano": true
         },
         "instrucciones": "Paso 1: Cocinar el arroz.\n Paso 2: Picar las verduras en cuadros pequeños. \n Paso 3: En un sarten con poco aceite, sofreir las verduras",
-        "imagen": "img/arroz_verduras.avif"
+        "imagen": "img/arroz_verduras.jpg"
     },
     {
         "id": 2,
@@ -50,7 +50,7 @@
             "vegetariano": false
         },
         "instrucciones": "Paso 1: Asar o cocer el jitomate/tomate junto con la cebolla\n Paso 2: Una vez asados o cocidos, colocarlos en la licuadora y si se tiene el ajo agregarlo, además de sazonar con algo de sal y de ser necesario un poco de agua\n Paso 3: Romper los huevos, colocarlos en un recipiente, sazonarlos con sal y batirlos\n Paso 4: Cocer los huevos a fuego lento con un poco de aceite.\n Paso 5: Una vez los huevos tengan una concistencia firme vaciar la salsa y dejar hervir.\n Listo! una  vez que hierve esta listo para comer, puedes acompañarlo con tortillas, frijoles o lo que gustes y tendras una comida deliciosa, espero que la disfrutes.",
-        "imagen": "img/huevos_salsa.jpg" 
+        "imagen": "img/huevos_salsa.jpg"
     },
     {
         "id": 3,
@@ -58,7 +58,10 @@
         "ingredientes": [
             {
                 "nombre": "chiles",
-                "sustitutos": ["chile verde", "chile serrano"]
+                "sustitutos": [
+                    "chile verde",
+                    "chile serrano"
+                ]
             },
             "aguacate",
             "jitomate",
@@ -78,5 +81,230 @@
         },
         "instrucciones": "Paso 1:Picar finamente el jitomate, cebolla, cilantro y el pepino (si se tiene).\n Paso 2:Agregar el aguacate y comenzar a machacarlo y a mezclarlo con una cuchara.\n Paso 3: Agregar el jugo de limón y sal y volver a mezclar todo.\n Paso extra: Si se tiene aceita de oliva agregar un poco y volver a mezclar\n Listo! Tienes tu guacamole listo para disfrutar y acompañar con una tostada, unos totopos o cualquier complemento de tu agrado, espero lo disfrutes.",
         "imagen": "img/guacamole.webp"
+    },
+    {
+        "id": 4,
+        "nombre": "Tinga de pollo",
+        "ingredientes": [
+            "pollo",
+            "jitomate",
+            "cebolla",
+            "chile chipotle",
+            "ajo*",
+            "cilantro*"
+        ],
+        "restricciones": {
+            "calorias": 450,
+            "carbohidratos": 40,
+            "proteinas": 25,
+            "grasas": 18,
+            "azucares": 4,
+            "vegetariano": false
+        },
+        "instrucciones": "Paso 1: Cocer el pollo con cebolla y cilantro en agua hirviendo, sasonado con sal y al llegar a su copcion desmenuzarlo (Importante: No tirar el caldo de pollo) .\nPaso 2: Licuar el jitomate, el chile chipotle, caldo de pollo y ajo (si se tiene).\nPaso 3: Sofreír cebolla en tiras, hasta que cambie de color, despues añadir la salsa y esperar a que hierva.\nPaso 4: Al momento que hierva, agregar el pollo y revolver bien, cocinar por unos minutos hasta que vuelva hervir. \nPaso extra: Probar y agregar sal en caso de que haga falta. \n Listo! Tienes una tinga de pollo, lista para comer en tostadas, tacos, quesadillas o como sea de tu agrado!",
+        "imagen": "img/tinga_pollo.jpg"
+    },
+    {
+        "id": 6,
+        "nombre": "Pasta con champiñones",
+        "ingredientes": [
+            "pasta",
+            "champiñones",
+            "crema",
+            "cebolla",
+            "ajo*"
+        ],
+        "restricciones": {
+            "calorias": 550,
+            "carbohidratos": 65,
+            "proteinas": 14,
+            "grasas": 22,
+            "azucares": 3,
+            "vegetariano": true
+        },
+        "instrucciones": "Paso 1: Cocer la pasta en una olla con agua hirviendo y agregar sal.\nPaso 2: Saltear ajo, cebolla y champiñones en un poco de aceite.\nPaso 3: Agregar la crema y la pasta y revolver bien.\nPaso 4: Sazonar al gusto con sal y pimienta",
+        "imagen": "img/pasta_champinones.jpg"
+    },
+    {
+        "id": 7,
+        "nombre": "Molletes",
+        "ingredientes": [
+            "bolillo",
+            {
+                "nombre": "fijoles refritos",
+                "sustitutos":[
+                    "frijoles"
+                ]
+            },
+            {
+                "nombre": "queso manchego",
+                "sustitutos": [
+                    "queso oaxaca",
+                    "queso",
+                    "quesillo"
+                ]
+            },
+            "mantequilla*"
+        ],
+        "restricciones": {
+            "calorias": 480,
+            "carbohidratos": 45,
+            "proteinas": 18,
+            "grasas": 20,
+            "azucares": 3,
+            "vegetariano": true
+        },
+        "instrucciones": "Paso 1: Partir los bolillos a la mitad y untar mantequilla si se tiene.\nPaso 2: Agregar frijoles, queso y gratinar.\nListo, puedes disfrutar de tus molletes y acompañarlos con la proreina de tu agrado y con un pico de gallo.",
+        "imagen": "img/molletes.jpg"
+    },
+    {
+        "id": 8,
+        "nombre": "Sopa de lentejas",
+        "ingredientes": [
+            "lentejas",
+            "zanahoria",
+            "papa",
+            "jitomate",
+            "ajo*",
+            "cebolla*"
+        ],
+        "restricciones": {
+            "calorias": 320,
+            "carbohidratos": 40,
+            "proteinas": 16,
+            "grasas": 8,
+            "azucares": 5,
+            "vegetariano": true
+        },
+        "instrucciones": "Paso 1: Cocer lentejas en agua.\nPaso 2: Licuar el jitomate y picar el resto de las verduras disponibles.\nPaso 3: Una vez que las lentejas esten hirviendo, agregar las verduras y el jitomate licuado.\nPaso 4: Dejar cocer a fuego lento hasta que las lentejas y las verduras esten suaves. \nListo! Tienes unas ricas lentejas para cocer",
+        "imagen": "img/sopa_lentejas.jpg"
+    },
+    {
+        "id": 9,
+        "nombre": "Quesadillas de flor de calabaza",
+        "ingredientes": [
+            "tortillas",
+            "flor de calabaza",
+            "cebolla",
+            {
+                "nombre": "queso oaxaca",
+                "sustitutos": [
+                    "quesillo",
+                    "queso manchego"
+                ]
+            },
+            "ajo*"
+        ],
+        "restricciones": {
+            "calorias": 350,
+            "carbohidratos": 35,
+            "proteinas": 12,
+            "grasas": 16,
+            "azucares": 1,
+            "vegetariano": true
+        },
+        "instrucciones": "Paso 1: Sofreír cebolla y flor de calabaza.\nPaso 2: Colocar en tortillas con queso y calentar hasta derretir.\nListas para servir.",
+        "imagen": "img/quesadillas_flor.jpg"
+    },
+    {
+        "id": 10,
+        "nombre": "Ensalada de atún",
+        "ingredientes": [
+            "atún",
+            "jitomate",
+            "cebolla",
+            "limón",
+            "mayonesa*",
+            {
+                "nombre": "apio",
+                "sustitutos": [
+                    "pepino"
+                ]
+            }
+        ],
+        "restricciones": {
+            "calorias": 300,
+            "carbohidratos": 5,
+            "proteinas": 25,
+            "grasas": 18,
+            "azucares": 2,
+            "vegetariano": false
+        },
+        "instrucciones": "Paso 1: Picar verduras finamente.\nPaso 2: Mezclar con atún, limón y un poco de mayonesa.\nServir frío.",
+        "imagen": "img/ensalada_atun.jpg"
+    },
+    {
+        "id": 11,
+        "nombre": "Sandwich de aguacate y huevo",
+        "ingredientes": [
+            "pan integral",
+            "huevo",
+            "aguacate",
+            "espinaca",
+            "jitomate",
+            "aceite de oliva*"
+        ],
+        "restricciones": {
+            "calorias": 420,
+            "carbohidratos": 35,
+            "proteinas": 18,
+            "grasas": 22,
+            "azucares": 2,
+            "vegetariano": true
+        },
+        "instrucciones": "Paso 1: Cocer el huevo al gusto.\nPaso 2: Aplastar el aguacate, colocar espinaca y jitomate.\nPaso 3: Montar el sandwich y calentar si se desea.",
+        "imagen": "img/sandwich_aguacate.jpg"
+    },
+    {
+        "id": 12,
+        "nombre": "Tacos de nopal",
+        "ingredientes": [
+            "nopales",
+            "cebolla",
+            "jitomate",
+            {
+                "nombre": "tortillas",
+                "sustitutos": [
+                    "tortillas integrales"
+                ]
+            },
+            "limón"
+        ],
+        "restricciones": {
+            "calorias": 230,
+            "carbohidratos": 20,
+            "proteinas": 6,
+            "grasas": 10,
+            "azucares": 2,
+            "vegetariano": true
+        },
+        "instrucciones": "Paso 1: Cocer nopales con cebolla.\nPaso 2: Mezclar con jitomate picado y sazonar.\nPaso 3: Servir en tortillas con limón.",
+        "imagen": "img/tacos_nopal.jpg"
+    },
+    {
+        "id": 13,
+        "nombre": "Arrachera con papas al horno",
+        "ingredientes": [
+            "arrachera",
+            "papas",
+            {
+                "nombre": "romero",
+                "sustitutos": [
+                    "tomillo"
+                ]
+            },
+            "aceite de oliva",
+            "ajo*"
+        ],
+        "restricciones": {
+            "calorias": 600,
+            "carbohidratos": 35,
+            "proteinas": 35,
+            "grasas": 30,
+            "azucares": 2,
+            "vegetariano": false
+        },
+        "instrucciones": "Paso 1: Marinar arrachera con sal y romero.\nPaso 2: Cortar papas en gajos, agregar ajo y hornear con aceite.\nPaso 3: Asar la carne al gusto y servir junto a las papas.",
+        "imagen": "img/arrachera_papas.jpg"
     }
 ]

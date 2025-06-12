@@ -1,7 +1,11 @@
 from flask import Flask, request, jsonify
 import json
 from math import floor
+from weasyprint import HTML
+from io import BytesIO
+from flask import send_file
 from flask_cors import CORS
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -93,6 +97,122 @@ def buscar_recetas():
             'success': False,
             'message': f'Error en el servidor: {str(e)}'
         }), 500
+
+
+@app.route('/api/generar-pdf', methods=['POST'])
+def generar_pdf():
+    try:
+        data = request.json
+        receta_id = int(data.get('id'))
+        ingredientes_modal = data.get('ingredientes_modal', [])
+
+        receta = next((r for r in recetas if r['id'] == receta_id), None)
+        if not receta:
+            return jsonify({'success': False, 'message': 'Receta no encontrada'}), 404
+
+        imagen_path = os.path.abspath(os.path.join('..', 'resources', receta['imagen']))
+
+        # Para Windows
+        if os.name == 'nt':
+            imagen_path = imagen_path.replace('\\', '/')
+
+        # URL para WeasyPrint (file://)
+        imagen_url = f"file:///{imagen_path}"
+        print(imagen_path)
+        print(f"¿Existe la imagen? {os.path.exists(imagen_path)}")
+        html_content = f"""
+        <html>
+        <head>
+            <meta charset="utf-8">
+            <style>
+                body {{
+                    font-family: 'Arial', sans-serif;
+                    color: #333;
+                    padding: 30px;
+                    background: #f8f8f8;
+                }}
+                .container {{
+                    background: white;
+                    padding: 30px;
+                    border-radius: 15px;
+                    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                }}
+                h1 {{
+                    color: #D32F2F;
+                    margin-top: 20px;
+                }}
+                h2 {{
+                    color: #C62828;
+                    margin-top: 30px;
+                    border-bottom: 2px solid #e0e0e0;
+                    padding-bottom: 5px;
+                }}
+                ul {{
+                    padding-left: 20px;
+                }}
+                li::marker {{
+                    color: #D32F2F;
+                }}
+                .step {{
+                    margin-bottom: 15px;
+                    display: flex;
+                    align-items: flex-start;
+                }}
+                .circle {{
+                    flex-shrink: 0;
+                    background-color: #f28b82;
+                    color: white;
+                    border-radius: 50%;
+                    width: 24px;
+                    height: 24px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    margin-right: 10px;
+                    font-size: 14px;
+                }}
+                .image-container {{
+                    text-align: center;
+                }}
+                .image-container img {{
+                    width: 100%;
+                    max-width: 500px;
+                    border-radius: 12px;
+                    margin-bottom: 20px;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+                }}
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <div class="image-container">
+                    <img src="{imagen_url}" alt="Imagen">
+                </div>
+
+                <h1>{receta['nombre']}</h1>
+
+                <h2>Ingredientes</h2>
+                <ul>
+                    {''.join(f"<li>{ing}</li>" for ing in ingredientes_modal)}
+                </ul>
+
+                <h2>Preparación</h2>
+               {''.join(f"<div class='step'><div class='circle'>{i+1}</div><div>{line.strip()}</div></div>"
+                    for i, line in enumerate(receta['instrucciones'].split('\n')) if line.strip())}
+            </div>
+        </body>
+        </html>
+        """
+
+        pdf_io = BytesIO()
+        HTML(string=html_content, base_url=".").write_pdf(pdf_io)
+        pdf_io.seek(0)
+
+        return send_file(pdf_io, mimetype='application/pdf', as_attachment=True, download_name='receta.pdf')
+
+    except Exception as e:
+        return jsonify({'success': False, 'message': f'Error generando el PDF: {str(e)}'}), 500
 
 
 def calcular_coincidencia_estricta(ingredientes_busqueda, ingredientes_receta):
