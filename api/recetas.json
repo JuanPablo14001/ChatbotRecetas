@@ -1,5 +1,6 @@
 [
     {
+        "id": 1,
         "nombre": "Arroz con verduras",
         "ingredientes": [
             "arroz",
@@ -19,171 +20,601 @@
         "imagen": "img/arroz_verduras.jpg"
     },
     {
-        "nombre": "Huevos revueltos con tomate",
+        "id": 2,
+        "nombre": "Huevos revueltos en salsa",
         "ingredientes": [
-            "huevos",
-            "tomate",
-            "sal",
-            "aceite"
+            {
+                "nombre": "jitomate",
+                "sustitutos": [
+                    "tomate"
+                ]
+            },
+            {
+                "nombre": "chiles",
+                "sustitutos": [
+                    "chile verde",
+                    "chile serrano",
+                    "chile de arbol"
+                ]
+            },
+            "cebolla",
+            "ajo*",
+            "huevo"
         ],
         "restricciones": {
-            "calorias": 300,
-            "carbohidratos": 4,
-            "proteinas": 14,
-            "grasas": 22,
-            "azucares": 3,
-            "vegetariano": true,
-            "sin_gluten": true
+            "calorias": 400,
+            "carbohidratos": 50,
+            "proteinas": 30,
+            "grasas": 20,
+            "azucares": 0,
+            "vegetariano": false
         },
-        "instrucciones": "Paso 1: Picar el tomate. \n Paso 2: Batir los huevos con sal. \n Paso 3: Cocinar todo junto en una sartén con poco aceite.",
-        "imagen": "img/huevos_tomate.jpg"
+        "instrucciones": "Paso 1: Asar o cocer el jitomate/tomate junto con la cebolla\n Paso 2: Una vez asados o cocidos, colocarlos en la licuadora y si se tiene el ajo agregarlo, además de sazonar con algo de sal y de ser necesario un poco de agua\n Paso 3: Romper los huevos, colocarlos en un recipiente, sazonarlos con sal y batirlos\n Paso 4: Cocer los huevos a fuego lento con un poco de aceite.\n Paso 5: Una vez los huevos tengan una concistencia firme vaciar la salsa y dejar hervir.\n Listo! una  vez que hierve esta listo para comer, puedes acompañarlo con tortillas, frijoles o lo que gustes y tendras una comida deliciosa, espero que la disfrutes.",
+        "imagen": "img/huevos_salsa.jpg"
     },
     {
-        "nombre": "Tostadas de frijoles",
+        "id": 3,
+        "nombre": "Guacamole",
         "ingredientes": [
-            "tostadas",
-            "frijoles refritos",
-            "lechuga",
-            "crema"
+            {
+                "nombre": "chiles",
+                "sustitutos": [
+                    "chile verde",
+                    "chile serrano"
+                ]
+            },
+            "aguacate",
+            "jitomate",
+            "cebolla",
+            "limón",
+            "pepino*",
+            "cilantro",
+            "aceite de oliva*"
+        ],
+        "restricciones": {
+            "calorias": 200,
+            "carbohidratos": 10,
+            "proteinas": 2,
+            "grasas": 18,
+            "azucares": 1,
+            "vegetariano": true
+        },
+        "instrucciones": "Paso 1:Picar finamente el jitomate, cebolla, cilantro y el pepino (si se tiene).\n Paso 2:Agregar el aguacate y comenzar a machacarlo y a mezclarlo con una cuchara.\n Paso 3: Agregar el jugo de limón y sal y volver a mezclar todo.\n Paso extra: Si se tiene aceita de oliva agregar un poco y volver a mezclar\n Listo! Tienes tu guacamole listo para disfrutar y acompañar con una tostada, unos totopos o cualquier complemento de tu agrado, espero lo disfrutes.",
+        "imagen": "img/guacamole.webp"
+    },
+    {
+        "id": 4,
+        "nombre": "Tinga de pollo",
+        "ingredientes": [
+            "pollo",
+            "jitomate",
+            "cebolla",
+            "chile chipotle",
+            "ajo*",
+            "cilantro*"
         ],
         "restricciones": {
             "calorias": 450,
             "carbohidratos": 40,
-            "proteinas": 12,
-            "grasas": 20,
-            "azucares": 2,
-            "vegetariano": true
+            "proteinas": 25,
+            "grasas": 18,
+            "azucares": 4,
+            "vegetariano": false
         },
-        "instrucciones": "Paso 1: Untar los frijoles en las tostadas. \n Paso 2: Agregar lechuga picada y un poco de crema.",
-        "imagen": "img/tostadas_frijoles.jpg"
+        "instrucciones": "Paso 1: Cocer el pollo con cebolla y cilantro en agua hirviendo, sasonado con sal y al llegar a su copcion desmenuzarlo (Importante: No tirar el caldo de pollo) .\nPaso 2: Licuar el jitomate, el chile chipotle, caldo de pollo y ajo (si se tiene).\nPaso 3: Sofreír cebolla en tiras, hasta que cambie de color, despues añadir la salsa y esperar a que hierva.\nPaso 4: Al momento que hierva, agregar el pollo y revolver bien, cocinar por unos minutos hasta que vuelva hervir. \nPaso extra: Probar y agregar sal en caso de que haga falta. \n Listo! Tienes una tinga de pollo, lista para comer en tostadas, tacos, quesadillas o como sea de tu agrado!",
+        "imagen": "img/tinga_pollo.jpg"
     },
     {
-        "nombre": "Sopa de fideos",
+        "id": 6,
+        "nombre": "Pasta con champiñones",
         "ingredientes": [
-            "fideos",
-            "agua",
-            "caldo de pollo en cubo",
-            "ajo"
+            {
+                "nombre": "pasta",
+                "ingredientes": [
+                    "espagueti"
+                ]
+            },
+            "champiñones",
+            "crema",
+            "cebolla",
+            "ajo*"
         ],
         "restricciones": {
-            "calorias": 200,
-            "carbohidratos": 35,
-            "proteinas": 5,
-            "grasas": 5,
-            "azucares": 1
+            "calorias": 550,
+            "carbohidratos": 65,
+            "proteinas": 14,
+            "grasas": 22,
+            "azucares": 3,
+            "vegetariano": true
         },
-        "instrucciones": "Paso 1: Hervir el agua con el ajo. \n Paso 2: Agregar los fideos y el cubo de caldo. \n Paso 3: Cocinar hasta que los fideos estén suaves.",
-        "imagen": "img/sopa_fideos.jpg"
+        "instrucciones": "Paso 1: Cocer la pasta en una olla con agua hirviendo y agregar sal.\nPaso 2: Saltear ajo, cebolla y champiñones en un poco de aceite.\nPaso 3: Agregar la crema y la pasta y revolver bien.\nPaso 4: Sazonar al gusto con sal y pimienta",
+        "imagen": "img/pasta_champ.jpg"
     },
     {
-        "nombre": "Sandwich de huevo",
+        "id": 7,
+        "nombre": "Molletes",
         "ingredientes": [
-            "pan de caja",
-            "huevo",
-            "mayonesa"
+            "bolillo",
+            {
+                "nombre": "fijoles refritos",
+                "sustitutos": [
+                    "frijoles"
+                ]
+            },
+            {
+                "nombre": "queso manchego",
+                "sustitutos": [
+                    "queso oaxaca",
+                    "queso",
+                    "quesillo"
+                ]
+            },
+            "mantequilla*"
+        ],
+        "restricciones": {
+            "calorias": 480,
+            "carbohidratos": 45,
+            "proteinas": 18,
+            "grasas": 20,
+            "azucares": 3,
+            "vegetariano": true
+        },
+        "instrucciones": "Paso 1: Partir los bolillos a la mitad y untar mantequilla si se tiene.\nPaso 2: Agregar frijoles, queso y gratinar.\nListo, puedes disfrutar de tus molletes y acompañarlos con la proreina de tu agrado y con un pico de gallo.",
+        "imagen": "img/molletes.jpg"
+    },
+    {
+        "id": 8,
+        "nombre": "Sopa de lentejas",
+        "ingredientes": [
+            "lentejas",
+            "zanahoria",
+            "papa",
+            "jitomate",
+            "ajo*",
+            "cebolla*"
+        ],
+        "restricciones": {
+            "calorias": 320,
+            "carbohidratos": 40,
+            "proteinas": 16,
+            "grasas": 8,
+            "azucares": 5,
+            "vegetariano": true
+        },
+        "instrucciones": "Paso 1: Cocer lentejas en agua.\nPaso 2: Licuar el jitomate y picar el resto de las verduras disponibles.\nPaso 3: Una vez que las lentejas esten hirviendo, agregar las verduras y el jitomate licuado.\nPaso 4: Dejar cocer a fuego lento hasta que las lentejas y las verduras esten suaves. \nListo! Tienes unas ricas lentejas para cocer",
+        "imagen": "img/lentejas.jpg"
+    },
+    {
+        "id": 9,
+        "nombre": "Quesadillas",
+        "ingredientes": [
+            {
+                "nombre": "tortillas",
+                "sustitutos": [
+                    "tortillas de harina"
+                ]
+            },
+            {
+                "nombre": "jamon",
+                "sustitutos": [
+                    "salchicha",
+                    "chorizo",
+                    "tocino",
+                    "champiñones",
+                    "flor de calabaza"
+                ]
+            },
+            {
+                "nombre": "queso oaxaca",
+                "sustitutos": [
+                    "quesillo",
+                    "queso manchego"
+                ]
+            }
         ],
         "restricciones": {
             "calorias": 350,
-            "carbohidratos": 30,
+            "carbohidratos": 35,
             "proteinas": 12,
-            "grasas": 18,
-            "azucares": 3
+            "grasas": 16,
+            "azucares": 1,
+            "vegetariano": true
         },
-        "instrucciones": "Paso 1: Cocinar el huevo. \n Paso 2: Untar mayonesa en el pan. \n Paso 3: Armar el sandwich con el huevo.",
-        "imagen": "img/sandwich_huevo.jpg"
+        "instrucciones": "Paso 1: Desmenuzar o partir el queso.\nPaso 2: Colocar a calentar tu complemento con un poco de acite o sin aceite segun tus preferencias.\nPaso 3: Colocar las tortillas a calentar.\nPaso 3: Colocar el queso, el complemento, doblar la tortilla y esperar a que derrita.\nListo!, tienes unas deliciosas quesadillas listas para comer",
+        "imagen": "img/quesadillas_flor.jpg"
     },
     {
-        "nombre": "Papas al sartén",
+        "id": 10,
+        "nombre": "Ensalada de atún",
         "ingredientes": [
-            "papa",
-            "aceite",
-            "sal"
+            "atún",
+            "jitomate",
+            "cebolla",
+            "limón",
+            "mayonesa*",
+            "elote*"
         ],
         "restricciones": {
-            "calorias": 400,
-            "carbohidratos": 45,
-            "proteinas": 4,
-            "grasas": 22,
-            "azucares": 1,
-            "vegetariano": true,
-            "vegano": true,
-            "sin_gluten": true
+            "calorias": 300,
+            "carbohidratos": 5,
+            "proteinas": 25,
+            "grasas": 18,
+            "azucares": 2,
+            "vegetariano": false
         },
-        "instrucciones": "Paso 1: Pelar y cortar las papas en cubos. \n Paso 2: Freírlas con poco aceite hasta que estén doradas.",
-        "imagen": "img/papas_sarten.jpg"
+        "instrucciones": "Paso 1: Picar verduras finamente todas las verduras.\nPaso 2: Mezclar con atún, limón y un poco de mayonesa y granos de elote si se tienen.\nLista! Tienes un rico atún para acompañar con tostadas, galletas o lo que sea de tu agrado!",
+        "imagen": "img/atun.webp"
     },
     {
-        "nombre": "Tortilla de papa",
+        "id": 11,
+        "nombre": "Huevos a la mexicana",
         "ingredientes": [
             "huevo",
-            "papa",
-            "sal"
+            "jitomate",
+            "cebolla",
+            {
+                "nombre": "chile serrano",
+                "sustitutos": [
+                    "chile verde",
+                    "chile jalapeño"
+                ]
+            }
+        ],
+        "restricciones": {
+            "calorias": 250,
+            "carbohidratos": 10,
+            "proteinas": 12,
+            "grasas": 18,
+            "azucares": 3,
+            "vegetariano": true
+        },
+        "instrucciones": "Paso 1: Picar jitomate, cebolla y chile en cuadros pequeños.\nPaso 2: Romper y batir los huevos. \nPaso 3: Sofreír las verduras en aceite. \nPaso 4:Agregar los huevos batidos y revolver hasta cocer.\nListo! tines unos ricos huevos a la mexicana para disfrutar.",
+        "imagen": "img/huevos_mexicana.jpg"
+    },
+    {
+        "id": 12,
+        "nombre": "Huevos rancheros",
+        "ingredientes": [
+            "huevo",
+            "tortillas",
+            "jitomate",
+            {
+                "nombre": "chiles",
+                "sustitutos": [
+                    "chile serrano",
+                    "chile verde",
+                    "chile jalapeño",
+                    "chile de arbol"
+                ]
+            },
+            "cebolla",
+            "frijoles refritos*",
+            "queso fresco*"
         ],
         "restricciones": {
             "calorias": 380,
             "carbohidratos": 30,
-            "proteinas": 14,
-            "grasas": 25,
-            "azucares": 1,
-            "vegetariano": true,
-            "sin_gluten": true
-        },
-        "instrucciones": "Paso 1: Hervir o freír las papas en rodajas. \n Paso 2: Batir huevos con sal. \n Paso 3: Cocinar todo junto como una tortilla.",
-        "imagen": "img/tortilla_papa.jpg"
-    },
-    {
-        "nombre": "Arroz con huevo",
-        "ingredientes": [
-            "arroz blanco",
-            "huevo",
-            "aceite",
-            "sal"
-        ],
-        "restricciones": {
-            "calorias": 450,
-            "carbohidratos": 50,
-            "proteinas": 12,
-            "grasas": 20,
-            "azucares": 1,
-            "sin_gluten": true
-        },
-        "instrucciones": "Paso 1: Cocinar el arroz. \n Paso 2: Freír el huevo. \n Paso 3: Servir el huevo sobre el arroz.",
-        "imagen": "img/arroz_huevo.jpg"
-    },
-    {
-        "nombre": "Molletes",
-        "ingredientes": [
-            "pan bolillo",
-            "frijoles refritos",
-            "queso"
-        ],
-        "restricciones": {
-            "calorias": 500,
-            "carbohidratos": 40,
             "proteinas": 15,
-            "grasas": 22,
-            "azucares": 2,
+            "grasas": 20,
+            "azucares": 4,
             "vegetariano": true
         },
-        "instrucciones": "Paso 1: Cortar el bolillo a la mitad. \n Paso 2: Untar frijoles y agregar queso. \n Paso 3: Hornear hasta que el queso se derrita.",
-        "imagen": "img/molletes.jpg"
+        "instrucciones": "Paso 1: Asar el jitomate junto con los chiles y las cebollas.\nPaso 2: Licuar todo lo asado y sasonar con sal.\nPaso 3: Colocar una tortilla en aceite caliente y cocer el huevo sobre la tortilla.\nPaso 4: Agregar los frijoles y vaciar la salsa caliente.\nPaso extra: Agregar el queso si se tiene.\nListo! Tienes unos ricos huevos rancheros pa",
+        "imagen": "img/huevos_rancheros.jpg"
     },
     {
-        "nombre": "Avena con plátano",
+        "id": 13,
+        "nombre": "Chilaquiles",
         "ingredientes": [
-            "avena",
-            "leche",
-            "plátano"
+            "totopos",
+            {
+                "nombre": "jitomate",
+                "ingredientes": [
+                    "tomate"
+                ]
+            },
+            {
+                "nombre": "chiles",
+                "sustitutos": [
+                    "chile serrano",
+                    "chile verde",
+                    "chile de arbol"
+                ]
+            },
+            "cebolla",
+            "crema*",
+            "queso",
+            "pollo*"
+        ],
+        "restricciones": {
+            "calorias": 420,
+            "carbohidratos": 45,
+            "proteinas": 18,
+            "grasas": 22,
+            "azucares": 5,
+            "vegetariano": false
+        },
+        "instrucciones": "Paso 1: Preparar salsa licuando y cociendo el jitomate/tomate, los chiles y la cebolla.\nPaso 2: Mezclar totopos con salsa caliente. Paso 3: Añadir crema, queso, cebolla y pollo si se desea.",
+        "imagen": "img/chilaquiles.jpg"
+    },
+    {
+        "id": 14,
+        "nombre": "Enchiladas verdes",
+        "ingredientes": [
+            "tortillas",
+            "tomate",
+            {
+                "nombre": "chiles",
+                "ingredientes": [
+                    "chile serrano",
+                    "chile jalapeño"
+                ]
+            },
+            "cebolla",
+            "cilantro",
+            "pollo",
+            "crema*",
+            "queso*",
+            "ajo*"
+        ],
+        "restricciones": {
+            "calorias": 480,
+            "carbohidratos": 40,
+            "proteinas": 25,
+            "grasas": 25,
+            "azucares": 4,
+            "vegetariano": false
+        },
+        "instrucciones": "Paso 1: Cocer y licuar los tomates, chiles cebolla y cilantro.\nPaso 2: Rellenar las tortillas con pollo y envolverlas.\nPaso 3: Colocar las tortillas en un poco de aceite.\nPaso 4: Vaciar la salsa sobre las tortillas rellenas doradas\n Paso extra: Si se tiene acompañar con crema, cilantro y queso.\nListo! tienes unas enchiladas listas para disfrutar.",
+        "imagen": "img/enchiladas_verdes.jpg"
+    },
+    {
+        "id": 16,
+        "nombre": "Picadillo",
+        "ingredientes": [
+            "carne molida",
+            "papa",
+            "zanahoria",
+            "jitomate",
+            "cebolla",
+            "ajo*"
+        ],
+        "restricciones": {
+            "calorias": 400,
+            "carbohidratos": 30,
+            "proteinas": 25,
+            "grasas": 20,
+            "azucares": 10,
+            "vegetariano": false
+        },
+        "instrucciones": "Paso 1: Picar todas las verduras.\nPaso 2: Sofreir las papas, zanahorias, cebolla y carne molida Paso 3: Añadir jitomate y sazonar.\nCocinar hasta que todo esté tierno.\nListo! Tienes un picadillo delicioso para comer.",
+        "imagen": "img/picadillo.jpeg"
+    },
+    {
+        "id": 18,
+        "nombre": "Tortas",
+        "ingredientes": [
+            "bolillo",
+            "aguacate*",
+            "jitomate",
+            "cebolla",
+            {
+                "nombre": "jamon",
+                "sustitutos":[
+                    "salchicha",
+                    "queso",
+                    "chorizo",
+                    "longaniza",
+                    "tocino",
+                    "pollo",
+                    "res",
+                    "cerdo" 
+                ]
+            },
+            {
+                "nombre": "mayonesa",
+                "sustitutos":[
+                    "crema"
+                ]
+            },
+            "frijoles refritos*"
         ],
         "restricciones": {
             "calorias": 350,
-            "carbohidratos": 45,
-            "proteinas": 10,
-            "grasas": 10,
-            "azucares": 14,
+            "carbohidratos": 30,
+            "proteinas": 15,
+            "grasas": 20,
+            "azucares": 3,
             "vegetariano": true
         },
-        "instrucciones": "Paso 1: Cocinar la avena con leche. \n Paso 2: Agregar plátano rebanado por encima.",
-        "imagen": "img/avena_platano.jpg"
+        "instrucciones": "Paso 1: Cocer/guisar lo que se tenga de acompañamineto para la torta.\nPaso 2: Tostar pan y untar mayonesa/crema y los frijoles si se tienen.\nPaso 3: Picar el jitomate, la cebolla y el aguacate si se tiene\nPaso 4: Armar la torta.\nListo! Tienes una deliciosa torta para disfrutras",
+        "imagen": "img/torta.jpeg"
+    },
+    {
+        "id": 19,
+        "nombre": "Huevos acompañados",
+        "ingredientes": [
+            "huevo",
+            {
+                "nombre": "jamon",
+                "sustitutos":[
+                    "salchicha",
+                    "chorizo",
+                    "longaniza",
+                    "tocino",
+                    "nopales" 
+                ]
+            },
+            "frijoles refritos*"
+        ],
+        "restricciones": {
+            "calorias": 220,
+            "carbohidratos": 10,
+            "proteinas": 12,
+            "grasas": 15,
+            "azucares": 2,
+            "vegetariano": true
+        },
+        "instrucciones": "Paso 1: Cocinar el acompañamiento.\nPaso 2: Romper y batir los huevos.\nPaso 3: Agregar el huevo al acompañamiento y sazonar con sal.\nPaso extra: Si se tiene los frijoles, acompña tus huevos con ellos.\nListo! tienes unos deliciosos huevos para comer.",
+        "imagen": "img/huevos.jpg"
+    },
+    {
+        "id": 20,
+        "nombre": "Chiles rellenos",
+        "ingredientes": [
+            "chile poblano",
+            {
+                "nombre": "queso",
+                "sustitutos":[
+                    "queso panela"
+                ]
+            },
+            "jitomate",
+            "huevo",
+            "cebolla*",
+            "ajo*"
+        ],
+        "restricciones": {
+            "calorias": 320,
+            "carbohidratos": 25,
+            "proteinas": 18,
+            "grasas": 18,
+            "azucares": 5,
+            "vegetariano": true
+        },
+        "instrucciones": "Paso 1: Asar y pelar los chiles.\nPaso 2: Rellenar con queso y jamon.\nPaso 3: Capear con huevo y freír.\nPaso 4:Asar y licual el jitomate y la cebolla y el ajo si se tiene.\nPaso 5: Vaciar la salsa en los chiles\nListo! Tienes unos deliciosos chiles rellenos para disfrutar.",
+        "imagen": "img/chiles_rellenos.jpg"
+    },
+    {
+        "id": 21,
+        "nombre": "Sopa de fideo",
+        "ingredientes": [
+            "fideo",
+            "jitomate",
+            "cebolla",
+            "ajo",
+            "caldo de pollo*",
+            "elote*",
+            "zanahoria*"
+        ],
+        "restricciones": {
+            "calorias": 280,
+            "carbohidratos": 40,
+            "proteinas": 8,
+            "grasas": 10,
+            "azucares": 5,
+            "vegetariano": false
+        },
+        "instrucciones": "Paso 1: Dorar fideo en aceite. Paso 2: Licuar jitomate, cebolla y ajo. Paso 3: Cocinar todo junto con caldo y verduras hasta que el fideo esté suave.",
+        "imagen": "img/sopa_fideo.jpg"
+    },
+    {
+        "id": 24,
+        "nombre": "Flautas de pollo",
+        "ingredientes": [
+            "tortillas",
+            "pollo desmenuzado",
+            "lechuga",
+            "crema",
+            "queso fresco",
+            "aguacate*"
+        ],
+        "restricciones": {
+            "calorias": 380,
+            "carbohidratos": 35,
+            "proteinas": 20,
+            "grasas": 20,
+            "azucares": 2,
+            "vegetariano": false
+        },
+        "instrucciones": "Paso 1: Rellenar tortillas con pollo y enrollar. Paso 2: Freír hasta crujientes. Paso 3: Servir con lechuga, crema, queso y aguacate.",
+        "imagen": "img/flautas_pollo.jpg"
+    },
+    {
+        "id": 25,
+        "nombre": "Huevos al albañil",
+        "ingredientes": [
+            "huevo",
+            "chorizo",
+            "frijoles refritos",
+            "tortillas",
+            "salsa verde*"
+        ],
+        "restricciones": {
+            "calorias": 420,
+            "carbohidratos": 30,
+            "proteinas": 20,
+            "grasas": 25,
+            "azucares": 2,
+            "vegetariano": false
+        },
+        "instrucciones": "Paso 1: Freír chorizo. Paso 2: Agregar huevos y revolver. Paso 3: Servir con frijoles, tortillas y salsa.",
+        "imagen": "img/huevos_albanil.jpg"
+    },
+    {
+        "id": 26,
+        "nombre": "Pambazos",
+        "ingredientes": [
+            "pan para pambazo",
+            "papa",
+            "chorizo",
+            "lechuga",
+            "crema",
+            "queso fresco",
+            "salsa roja"
+        ],
+        "restricciones": {
+            "calorias": 480,
+            "carbohidratos": 45,
+            "proteinas": 15,
+            "grasas": 28,
+            "azucares": 3,
+            "vegetariano": false
+        },
+        "instrucciones": "Paso 1: Rellenar pan con papas/chorizo. Paso 2: Bañar en salsa y freír. Paso 3: Decorar con lechuga, crema y queso.",
+        "imagen": "img/pambazos.jpg"
+    },
+    {
+        "id": 27,
+        "nombre": "Enfrijoladas",
+        "ingredientes": [
+            "tortillas",
+            "frijoles refritos",
+            "queso fresco",
+            "crema",
+            "cebolla*"
+        ],
+        "restricciones": {
+            "calorias": 350,
+            "carbohidratos": 40,
+            "proteinas": 12,
+            "grasas": 18,
+            "azucares": 2,
+            "vegetariano": true
+        },
+        "instrucciones": "Paso 1: Bañar tortillas en frijoles licuados. Paso 2: Enrollar y cubrir con más frijoles. Paso 3: Decorar con queso, crema y cebolla.",
+        "imagen": "img/enfrijoladas.jpg"
+    },
+    {
+        "id": 30,
+        "nombre": "Aguachile",
+        "ingredientes": [
+            "camarón",
+            "limón",
+            "chile serrano",
+            "pepino",
+            "cebolla morada",
+            "aguacate*"
+        ],
+        "restricciones": {
+            "calorias": 280,
+            "carbohidratos": 15,
+            "proteinas": 25,
+            "grasas": 12,
+            "azucares": 3,
+            "vegetariano": false
+        },
+        "instrucciones": "Paso 1: Cocer camarones en limón. Paso 2: Licuar chiles con poco agua. Paso 3: Mezclar todo con pepino y cebolla. Servir frío.",
+        "imagen": "img/aguachile.jpg"
     }
 ]
