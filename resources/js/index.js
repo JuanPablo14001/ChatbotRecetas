@@ -628,7 +628,7 @@ const allIngredients = [
 
     // Pescados y mariscos
     "salmón", "atun", "bacalao", "merluza", "trucha", "sardina", "anchoa", "tilapia", "robalo", "dorado", "lenguado", "pez espada", "anguila",
-    "mojarra", "camarón", "langosta", "langostino", "cangrejo", "ostras", "mejillones", "almejas", "calamar", "pulpo", "vieiras", "surimi",
+    "mojarra", "camaron", "langosta", "langostino", "cangrejo", "ostras", "mejillones", "almejas", "calamar", "pulpo", "vieiras", "surimi",
 
     // Huevos y lácteos
     "huevo", "huevo de gallina", "huevo de codorniz", "huevo de pato", "matequilla", "margarina",
@@ -645,13 +645,13 @@ const allIngredients = [
     "tortillas", "tortillas de harina",
 
     // Verduras y hongos
-    "zanahoria", "papa", "camote", "cebolla", "ajo", "tomate", "jitomate", "tomate verde", "lechuga", "espinaca", "acelga", "brócoli", "coliflor", "repollo", "col rizada",
+    "zanahoria", "papa", "camote", "cebolla", "cebolla morada", "ajo", "tomate", "jitomate", "tomate verde", "lechuga", "espinaca", "acelga", "brócoli", "coliflor", "repollo", "col rizada",
     "pepino", "pimiento", "pimiento verde", "pimiento rojo", "berenjena", "calabacín", "calabaza", "calabacita", "apio", "rábano", "nabo", "alcachofa", "chayote", "betabel", "esparrago", "esparragos", "elote",
     "hongo", "seta", "portobello", "champiñón", "champiñones", "hongos", "setas", "okras", "ñame", "palmito", "nopales", "flores de calabaza", "flor de calabaza", "huauzontle", "quelites", "huitlacoche",
 
     // Frutas comunes y exóticas
     "manzana", "plátano", "naranja", "pera", "uva", "fresa", "kiwi", "mango", "piña", "sandía", "melón", "papaya", "cereza", "durazno",
-    "ciruela", "higo", "granada", "guayaba", "limón", "lima", "mandarina", "toronja", "lichi", "tamarindo", "carambola", "maracuyá", "pitahaya", "guanábana", "zapote", "níspero", "arándano", "frambuesa", "mora", "coco", "aguacate",
+    "ciruela", "higo", "granada", "guayaba", "limon", "lima", "mandarina", "toronja", "lichi", "tamarindo", "carambola", "maracuyá", "pitahaya", "guanábana", "zapote", "níspero", "arándano", "frambuesa", "mora", "coco", "aguacate",
     "tejocote", "tuna", "xoconostle", "mamey", "chicozapote", "cacao", "café", "jicama",
 
     // Frutos secos y semillas

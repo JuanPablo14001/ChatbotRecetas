@@ -66,7 +66,7 @@
             "aguacate-",
             "jitomate",
             "cebolla",
-            "limón",
+            "limon",
             "pepino*",
             "cilantro",
             "aceite de oliva*"
@@ -231,7 +231,7 @@
             "atun-",
             "jitomate",
             "cebolla",
-            "limón",
+            "limon",
             "mayonesa*",
             "elote*"
         ],
@@ -490,13 +490,11 @@
         "id": 21,
         "nombre": "Sopa de fideo",
         "ingredientes": [
-            "fideo",
+            "fideo-",
             "jitomate",
             "cebolla",
-            "ajo",
-            "caldo de pollo*",
-            "elote*",
-            "zanahoria*"
+            "ajo*",
+            "caldo de pollo*"
         ],
         "restricciones": {
             "calorias": 280,
@@ -506,18 +504,30 @@
             "azucares": 5,
             "vegetariano": false
         },
-        "instrucciones": "Paso 1: Dorar fideo en aceite. Paso 2: Licuar jitomate, cebolla y ajo. Paso 3: Cocinar todo junto con caldo y verduras hasta que el fideo esté suave.",
-        "imagen": "img/sopa_fideo.jpg"
+        "instrucciones": "Paso 1: Dorar el  fideo en aceite.\nPaso 2: Licuar jitomate, cebolla y ajo si se tiene.\nPaso 3: Vaciar lo licuado a los fideos junto con caldo de pollo hasta que el fideo esté suave.\nListo! Tienes na deliciosa sopa de fideos para disfrutar.",
+        "imagen": "img/fideos.jpg"
     },
     {
         "id": 24,
-        "nombre": "Flautas de pollo",
+        "nombre": "Flautas",
         "ingredientes": [
-            "tortillas",
-            "pollo",
-            "lechuga",
+            "tortillas-",
+            {
+                "nombre": "pollo",
+                "sustitutos": [
+                    "res",
+                    "cerdo",
+                    "jamon"
+                ]
+            },
+            "lechuga*",
             "crema",
-            "queso fresco",
+            {
+                "nombre": "queso",
+                "sustitutos":[
+                    "queso fresco"
+                ]
+            },
             "aguacate*"
         ],
         "restricciones": {
@@ -528,41 +538,21 @@
             "azucares": 2,
             "vegetariano": false
         },
-        "instrucciones": "Paso 1: Rellenar tortillas con pollo y enrollar. Paso 2: Freír hasta crujientes. Paso 3: Servir con lechuga, crema, queso y aguacate.",
-        "imagen": "img/flautas_pollo.jpg"
-    },
-    {
-        "id": 25,
-        "nombre": "Huevos al albañil",
-        "ingredientes": [
-            "huevo",
-            "chorizo",
-            "frijoles refritos",
-            "tortillas",
-            "salsa verde*"
-        ],
-        "restricciones": {
-            "calorias": 420,
-            "carbohidratos": 30,
-            "proteinas": 20,
-            "grasas": 25,
-            "azucares": 2,
-            "vegetariano": false
-        },
-        "instrucciones": "Paso 1: Freír chorizo. Paso 2: Agregar huevos y revolver. Paso 3: Servir con frijoles, tortillas y salsa.",
-        "imagen": "img/huevos_albanil.jpg"
+        "instrucciones": "Paso 1: Rellenar tortillas con el relleno disponible y enrollar.\nPaso 2: Freír hasta que esten  crujientes.\nPaso 3: Servir con lechuga, crema, queso y aguacate.\nListo, tienes unas deliciosas flautas para disfrutar.",
+        "imagen": "img/flautas.webp"
     },
     {
         "id": 26,
-        "nombre": "Pambazos",
+        "nombre": "Papas con chorizo",
         "ingredientes": [
-            "pan para pambazo",
-            "papa",
-            "chorizo",
-            "lechuga",
-            "crema",
-            "queso fresco",
-            "salsa roja"
+            "papa-",
+            {
+                "nombre": "chorizo",
+                "sustitutos":[
+                    "longaniza"
+                ]
+            },
+            "cebolla*"
         ],
         "restricciones": {
             "calorias": 480,
@@ -572,17 +562,31 @@
             "azucares": 3,
             "vegetariano": false
         },
-        "instrucciones": "Paso 1: Rellenar pan con papas/chorizo. Paso 2: Bañar en salsa y freír. Paso 3: Decorar con lechuga, crema y queso.",
-        "imagen": "img/pambazos.jpg"
+        "instrucciones": "Paso 1: Cortar las papas en cuadros y cocerlas.\nPaso 2: Freir el chorizo y agregar las papas.\nPaso 3: Agregar la cebolla si se tiene.\nListo, tienes unas deliciosas papas con chorizo listas para disfrutar.",
+        "imagen": "img/papas_chorizo.jpg"
     },
     {
         "id": 27,
         "nombre": "Enfrijoladas",
         "ingredientes": [
-            "tortillas",
-            "frijoles refritos",
-            "queso fresco",
-            "crema",
+            "tortillas-",
+            {
+                "nombre": "fijoles refritos",
+                "sustitutos":[
+                    "frijoles"
+                ]
+            },
+            {
+                "nombre": "queso",
+                "sustitutos":[
+                    "queso fresco",
+                    "queso oaxaca",
+                    "queso panela",
+                    "quesillo"
+                ]
+            },
+            "crema*",
+            "pollo",
             "cebolla*"
         ],
         "restricciones": {
@@ -593,18 +597,31 @@
             "azucares": 2,
             "vegetariano": true
         },
-        "instrucciones": "Paso 1: Bañar tortillas en frijoles licuados. Paso 2: Enrollar y cubrir con más frijoles. Paso 3: Decorar con queso, crema y cebolla.",
+        "instrucciones": "Paso 1: Bañar tortillas en frijoles refritos.\nPaso 2: Rellenar de pollo, enrollar y cubrir con más frijoles.\nPaso 3: Decorar con queso, crema y cebolla si se tienen.\nListo! ya tienes unas ricas enfrijoladas para dsifrutar.",
         "imagen": "img/enfrijoladas.jpg"
     },
     {
         "id": 30,
         "nombre": "Aguachile",
         "ingredientes": [
-            "camarón",
-            "limón",
-            "chile serrano",
+            "camaron-",
+            "limon-",
+            { 
+                "nombre": "chile serrano",
+                "sustitutos": [
+                    "chiles",
+                    "chile verde",
+                    "chile de arbol",
+                    "chile morita"
+                ]
+            },
             "pepino",
-            "cebolla morada",
+            {
+                "nombre": "cebolla",
+                "sustitutos": [
+                    "cebolla morada"
+                ]
+            },
             "aguacate*"
         ],
         "restricciones": {
@@ -615,7 +632,7 @@
             "azucares": 3,
             "vegetariano": false
         },
-        "instrucciones": "Paso 1: Cocer camarones en limón. Paso 2: Licuar chiles con poco agua. Paso 3: Mezclar todo con pepino y cebolla. Servir frío.",
+        "instrucciones": "Paso 1: Cocer los camarones en limón. Paso 2: Licuar chiles con poco agua y sal. Paso 3: Mezclar todo con pepino y cebolla y servir frío.\nListo! Tienes un delicioso aguachile para disfrutar.",
         "imagen": "img/aguachile.jpg"
     }
 ]
