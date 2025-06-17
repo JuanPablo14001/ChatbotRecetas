@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // * Globals
 
 let recetas = [];
+
 const receta = {
     ingredientes: [],
     restricciones: {
@@ -26,6 +27,8 @@ const receta = {
         vegetariano: false
     }
 };
+
+
 const fullModal = document.querySelector('#fullScreenModal');
 const downloadBtn = document.querySelector('#downloadRecipeBtn');
 const chatContainer = document.querySelector('#chatContainer');
@@ -37,8 +40,11 @@ const modalStepsContainer = fullModal.querySelector('#modalStepsContainer');
 
 
 
+// ** MODALS
+
 //? Delegation for view-moreButtons
 chatContainer.addEventListener('click', e => {
+    console.log(e.target);
     if (e.target.classList.contains('ver-receta-btn')) {
         const id = e.target.dataset.index;
         openModalWithReceta(id);
@@ -172,9 +178,9 @@ const closeModal = () => {
 closeFullScreenModal.addEventListener('click', closeModal);
 closeFullScreenModalBottom.addEventListener('click', closeModal);
 
+
 // Función para descargar la receta
 downloadBtn.addEventListener('click', ()=> {
-    console.log("si");
     const recetaId = downloadRecipeBtn.dataset.id;
     const ingredientes = Array.from(
         modalStepsContainer.querySelectorAll("ul li")
@@ -203,6 +209,7 @@ downloadBtn.addEventListener('click', ()=> {
 
 
 
+// ** Events before send data
 
 
 // ? Function to serach the ingredients & load on the object
@@ -277,6 +284,9 @@ const loadIngredients = () => {
         }
     }
 }
+
+
+// *  Send data & after
 
 //? Function to all the logic in the moment to sendButton's click
 const sendIngredients = () => {
@@ -422,6 +432,7 @@ const sendMessage = (type, message, success = true) => {
     }
 };
 
+
 const executeAction = async () => {
     const url = 'http://127.0.0.1:5000/api/buscar-recetas';
     const method = "POST";
@@ -440,7 +451,7 @@ const executeAction = async () => {
 
         const result = loadMessageChef(data);
 
-        // Si quieres que el mensaje HTML se renderice, usa innerHTML en sendMessage
+        
         sendMessage('bot', result.message, result.success);
 
     } catch (error) {
@@ -502,7 +513,6 @@ function loadMessageUser() {
 
 const loadMessageChef = data => {
     if (!data.success) {
-        console.log("aqui");
         const mes = `<p>¡Lo siento! 😞 No pude encontrar una receta con las instrucciones dadas.</p>`
         return {
             success: false,
@@ -537,6 +547,7 @@ const loadMessageChef = data => {
     };
 };
 
+//** UI Events
 
 const darkMode = () => {
     const toggle = document.querySelector('#darkModeToggle');
@@ -600,8 +611,8 @@ const asideBarEvent = () => {
 
 const allIngredients = [
     // Carnes
-    "res", "cerdo", "pollo", "pavo", "cordero", "ternera", "conejo", "cabrito", "venado", "bisonte", "pato", "ganso", "codorniz", "jabalí",
-    "chorizo", "longaniza", "salchicha", "jamón", "tocino", "hígado", "mollejas",
+    "res", "cerdo", "pollo", "pavo", "cordero", "carne molida", "ternera", "conejo", "cabrito", "venado", "bisonte", "pato", "ganso", "codorniz", "jabalí",
+    "chorizo", "longaniza", "salchicha", "jamon", "tocino", "hígado", "mollejas",
 
     // Pescados y mariscos
     "salmón", "atún", "bacalao", "merluza", "trucha", "sardina", "anchoa", "tilapia", "robalo", "dorado", "lenguado", "pez espada", "anguila",
@@ -611,7 +622,7 @@ const allIngredients = [
     "huevo", "huevo de gallina", "huevo de codorniz", "huevo de pato", "matequilla", "margarina",
     "leche", "leche entera", "leche descremada", "leche evaporada", "leche condensada", "leche de almendras", "leche de coco", "leche de soya",
     "yogur", "yogur griego", "queso", "queso cheddar", "queso mozzarella", "queso fresco", "queso panela", "queso oaxaca", "queso cotija", "queso crema", "queso manchego", "quesillo",
-    "mantequilla", "nata", "crema agria", "crema batida", "requesón",
+    "mantequilla", "nata", "crema", "crema batida", "requesón",
 
     // Legumbres y leguminosas
     "frijoles", "frijoles refritos", "lentejas", "garbanzos", "soya", "edamame", "alubias", "habas", "guisantes",
@@ -619,7 +630,7 @@ const allIngredients = [
     // Cereales, harinas y tortillas
     "arroz", "trigo", "maíz", "avena", "cebada", "centeno", "mijo", "quinoa", "amaranto",
     "harina de trigo", "harina integral", "harina de maíz", "harina de arroz", "harina de avena", "masa de maíz", "fécula de maíz", "almidón de yuca",
-    "tortillas",
+    "tortillas", "tortillas de harina",
 
     // Verduras y hongos
     "zanahoria", "papa", "camote", "cebolla", "ajo", "tomate", "jitomate", "tomate verde", "lechuga", "espinaca", "acelga", "brócoli", "coliflor", "repollo", "col rizada",
@@ -655,10 +666,10 @@ const allIngredients = [
     "té verde", "té negro", "café", "leche de avena", "leche de arroz", "bebida de almendras", "atole", "champurrado", "horchata", "agua de jamaica", "agua de tamarindo", "agua de limón", "aguas frescas",
 
     // Panes y derivados
-    "pan blanco", "pan integral", "pan de centeno", "bagel", "tortilla de maíz", "tortilla de harina", "tortilla azul", "pan pita", "bollos", "croissant", "brioche", "bolillo", "telera", "concha", "cuerno", "pan de muerto", "rosca de reyes",
+    "pan blanco", "pan integral", "pan de centeno", "bagel", "tortilla de maíz", "totopos", "tortilla de harina", "tortilla azul", "pan pita", "bollos", "croissant", "brioche", "bolillo", "telera", "concha", "cuerno", "pan de muerto", "rosca de reyes",
 
     // Pastas y masas
-    "espagueti", "macarrones", "fideos", "lasagna", "ravioles", "ñoquis", "masa de pizza", "masa de hojaldre", "masa quebrada", "masa para tamales", "masa para empanadas",
+    "pasta", "espagueti", "macarrones", "fideos", "lasagna", "ravioles", "ñoquis", "masa de pizza", "masa de hojaldre", "masa quebrada", "masa para tamales", "masa para empanadas",
 
     // Platos y preparaciones mexicanas
     "tamales", "tamal", "pozole", "tostadas", "sopes", "gorditas", "tlacoyos", "quesadillas", "chicharrón", "menudo", "pancita", "tripas",
