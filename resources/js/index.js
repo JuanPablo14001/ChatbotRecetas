@@ -59,7 +59,7 @@ const openModalWithReceta = id => {
 
     // Configurar el contenido
     modalTitle.textContent = receta.nombre;
-    downloadBtn.dataset.id= receta.id;
+    downloadBtn.dataset.id = receta.id;
     modalImageContainer.innerHTML = `
         <div class="relative w-full h-64 md:h-96 overflow-hidden rounded-lg shadow-md">
             <img src="/resources/${receta.imagen}" alt="Imagen de ${receta.nombre}" 
@@ -69,8 +69,20 @@ const openModalWithReceta = id => {
     `;
 
     const ingredientesList = receta.ingredientes
-        .map(ingrediente => `<li class="py-1 px-3 rounded-md transition-colors duration-200"><span class="text-red-500 mr-2">•</span>${ingrediente}</li>`)
-        .join('');
+        .reduce((html, ingrediente, index, arr) => {
+            // Abrir nuevo <li> cada 2 elementos
+            if (index % 2 === 0) {
+                const next = arr[index + 1];
+                html += `
+                <li class="flex  gap-4 py-1 px-3 rounded-md transition-colors duration-200">
+                    <span class="text-red-500">•</span> ${ingrediente}
+                    ${next !== undefined
+                        ? `<span class="text-red-500">•</span> ${next}`
+                        : ''}
+                </li>`;
+            }
+            return html;
+        }, '');
 
     const instruccionesFormateadas = receta.instrucciones
         .split('\n')
@@ -180,31 +192,31 @@ closeFullScreenModalBottom.addEventListener('click', closeModal);
 
 
 // Función para descargar la receta
-downloadBtn.addEventListener('click', ()=> {
+downloadBtn.addEventListener('click', () => {
     const recetaId = downloadRecipeBtn.dataset.id;
     const ingredientes = Array.from(
         modalStepsContainer.querySelectorAll("ul li")
     ).map(el => el.textContent.trim());
     const url = 'http://127.0.0.1:5000/api/generar-pdf';
     const body = JSON.stringify({
-            id: recetaId,
-            ingredientes_modal: ingredientes
-        })
+        id: recetaId,
+        ingredientes_modal: ingredientes
+    })
 
     fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: body
     })
-    .then(res => res.blob())
-    .then(blob => {
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = `receta${modalTitle.textContent}.pdf`;
-        a.click();
-        URL.revokeObjectURL(url);
-    }); 
+        .then(res => res.blob())
+        .then(blob => {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = `receta${modalTitle.textContent}.pdf`;
+            a.click();
+            URL.revokeObjectURL(url);
+        });
 });
 
 
@@ -451,7 +463,7 @@ const executeAction = async () => {
 
         const result = loadMessageChef(data);
 
-        
+
         sendMessage('bot', result.message, result.success);
 
     } catch (error) {
@@ -574,7 +586,7 @@ const darkMode = () => {
 const asideBarEvent = () => {
     const toggleBtn = document.getElementById("toggleSidebar");
     const sidebar = document.getElementById("sidebar");
-    
+
 
     toggleBtn.addEventListener("click", () => {
         const isHidden = sidebar.classList.toggle("-translate-x-full");
@@ -615,7 +627,7 @@ const allIngredients = [
     "chorizo", "longaniza", "salchicha", "jamon", "tocino", "hígado", "mollejas",
 
     // Pescados y mariscos
-    "salmón", "atún", "bacalao", "merluza", "trucha", "sardina", "anchoa", "tilapia", "robalo", "dorado", "lenguado", "pez espada", "anguila",
+    "salmón", "atun", "bacalao", "merluza", "trucha", "sardina", "anchoa", "tilapia", "robalo", "dorado", "lenguado", "pez espada", "anguila",
     "mojarra", "camarón", "langosta", "langostino", "cangrejo", "ostras", "mejillones", "almejas", "calamar", "pulpo", "vieiras", "surimi",
 
     // Huevos y lácteos

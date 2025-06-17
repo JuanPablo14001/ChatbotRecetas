@@ -3,7 +3,7 @@
         "id": 1,
         "nombre": "Arroz con verduras",
         "ingredientes": [
-            "arroz",
+            "arroz-",
             "zanahoria",
             "cebolla",
             "pimiento"
@@ -39,7 +39,7 @@
             },
             "cebolla",
             "ajo*",
-            "huevo"
+            "huevo-"
         ],
         "restricciones": {
             "calorias": 400,
@@ -63,7 +63,7 @@
                     "chile serrano"
                 ]
             },
-            "aguacate",
+            "aguacate-",
             "jitomate",
             "cebolla",
             "limón",
@@ -86,7 +86,7 @@
         "id": 4,
         "nombre": "Tinga de pollo",
         "ingredientes": [
-            "pollo",
+            "pollo-",
             "jitomate",
             "cebolla",
             "chile chipotle",
@@ -114,7 +114,7 @@
                     "espagueti"
                 ]
             },
-            "champiñones",
+            "champiñones-",
             "crema",
             "cebolla",
             "ajo*"
@@ -134,7 +134,7 @@
         "id": 7,
         "nombre": "Molletes",
         "ingredientes": [
-            "bolillo",
+            "bolillo-",
             {
                 "nombre": "fijoles refritos",
                 "sustitutos": [
@@ -166,7 +166,7 @@
         "id": 8,
         "nombre": "Sopa de lentejas",
         "ingredientes": [
-            "lentejas",
+            "lentejas-",
             "zanahoria",
             "papa",
             "jitomate",
@@ -208,7 +208,8 @@
                 "nombre": "queso oaxaca",
                 "sustitutos": [
                     "quesillo",
-                    "queso manchego"
+                    "queso manchego",
+                    "queso"
                 ]
             }
         ],
@@ -227,7 +228,7 @@
         "id": 10,
         "nombre": "Ensalada de atún",
         "ingredientes": [
-            "atún",
+            "atun-",
             "jitomate",
             "cebolla",
             "limón",
@@ -249,7 +250,7 @@
         "id": 11,
         "nombre": "Huevos a la mexicana",
         "ingredientes": [
-            "huevo",
+            "huevo-",
             "jitomate",
             "cebolla",
             {
@@ -275,7 +276,7 @@
         "id": 12,
         "nombre": "Huevos rancheros",
         "ingredientes": [
-            "huevo",
+            "huevo-",
             "tortillas",
             "jitomate",
             {
@@ -306,7 +307,7 @@
         "id": 13,
         "nombre": "Chilaquiles",
         "ingredientes": [
-            "totopos",
+            "totopos-",
             {
                 "nombre": "jitomate",
                 "ingredientes": [
@@ -341,7 +342,7 @@
         "id": 14,
         "nombre": "Enchiladas verdes",
         "ingredientes": [
-            "tortillas",
+            "tortillas-",
             "tomate",
             {
                 "nombre": "chiles",
@@ -372,7 +373,7 @@
         "id": 16,
         "nombre": "Picadillo",
         "ingredientes": [
-            "carne molida",
+            "carne molida-",
             "papa",
             "zanahoria",
             "jitomate",
@@ -394,7 +395,7 @@
         "id": 18,
         "nombre": "Tortas",
         "ingredientes": [
-            "bolillo",
+            "bolillo-",
             "aguacate*",
             "jitomate",
             "cebolla",
@@ -434,7 +435,7 @@
         "id": 19,
         "nombre": "Huevos acompañados",
         "ingredientes": [
-            "huevo",
+            "huevo-",
             {
                 "nombre": "jamon",
                 "sustitutos":[
@@ -462,7 +463,7 @@
         "id": 20,
         "nombre": "Chiles rellenos",
         "ingredientes": [
-            "chile poblano",
+            "chile poblano-",
             {
                 "nombre": "queso",
                 "sustitutos":[
@@ -513,7 +514,7 @@
         "nombre": "Flautas de pollo",
         "ingredientes": [
             "tortillas",
-            "pollo desmenuzado",
+            "pollo",
             "lechuga",
             "crema",
             "queso fresco",

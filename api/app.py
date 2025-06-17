@@ -17,16 +17,18 @@ with open('recetas.json', 'r', encoding='utf-8') as f:
 def normalizar_ingrediente(ing):
     if isinstance(ing, str):
         return {
-            'nombre': ing.rstrip('*'),
+            'nombre': ing.rstrip('*').rstrip('-'),
             'sustitutos': [],
             'opcional': ing.endswith('*'),
-            'original': ing.rstrip('*')
+            'obligatorio': ing.endswith('-'),
+            'original': ing.rstrip('*').rstrip('-')
         }
     return {
-        'nombre': ing.get('nombre', '').rstrip('*'),
+        'nombre': ing.get('nombre', '').rstrip('*').rstrip('-'),
         'sustitutos': ing.get('sustitutos', []),
         'opcional': ing.get('opcional', False) or ('nombre' in ing and ing['nombre'].endswith('*')),
-        'original': ing.get('nombre', '').rstrip('*')
+        'obligatorio': ing.get('obligatorio', False) or ('nombre' in ing and ing['nombre'].endswith('-')),
+        'original': ing.get('nombre', '').rstrip('*').rstrip('-')
     }
 
 
@@ -219,6 +221,24 @@ def calcular_coincidencia_estricta(ingredientes_busqueda, ingredientes_receta):
     ingredientes_requeridos = [ing for ing in ingredientes_receta if not ing['opcional']]
     if not ingredientes_requeridos:
         return 0, []
+
+    # Verificar primero ingredientes obligatorios
+    for ing_receta in ingredientes_receta:
+        if ing_receta['obligatorio']:
+            encontrado = False
+            
+            # Verificar ingrediente original
+            if ing_receta['nombre'] in ingredientes_busqueda:
+                encontrado = True
+            else:
+                # Verificar sustitutos
+                for sustituto in ing_receta['sustitutos']:
+                    if sustituto in ingredientes_busqueda:
+                        encontrado = True
+                        break
+            
+            if not encontrado:
+                return 0, []  # No cumple con ingrediente obligatorio
 
     coincidencias = 0
     ingredientes_mostrar = []
