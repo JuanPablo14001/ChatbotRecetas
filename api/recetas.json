@@ -68,8 +68,7 @@
             "cebolla",
             "limon",
             "pepino*",
-            "cilantro",
-            "aceite de oliva*"
+            "cilantro"
         ],
         "restricciones": {
             "calorias": 200,
@@ -105,7 +104,7 @@
         "imagen": "img/tinga_pollo.jpg"
     },
     {
-        "id": 6,
+        "id": 5,
         "nombre": "Pasta con champiñones",
         "ingredientes": [
             {
@@ -131,7 +130,7 @@
         "imagen": "img/pasta_champ.jpg"
     },
     {
-        "id": 7,
+        "id": 6,
         "nombre": "Molletes",
         "ingredientes": [
             "bolillo-",
@@ -163,7 +162,7 @@
         "imagen": "img/molletes.jpg"
     },
     {
-        "id": 8,
+        "id": 7,
         "nombre": "Sopa de lentejas",
         "ingredientes": [
             "lentejas-",
@@ -270,7 +269,7 @@
             "vegetariano": true
         },
         "instrucciones": "Paso 1: Picar jitomate, cebolla y chile en cuadros pequeños.\nPaso 2: Romper y batir los huevos. \nPaso 3: Sofreír las verduras en aceite. \nPaso 4:Agregar los huevos batidos y revolver hasta cocer.\nListo! tines unos ricos huevos a la mexicana para disfrutar.",
-        "imagen": "img/huevos_mexicana.jpg"
+        "imagen": "img/huevos_mexicana.jpeg"
     },
     {
         "id": 12,
@@ -401,7 +400,7 @@
             "cebolla",
             {
                 "nombre": "jamon",
-                "sustitutos":[
+                "sustitutos": [
                     "salchicha",
                     "queso",
                     "chorizo",
@@ -409,12 +408,12 @@
                     "tocino",
                     "pollo",
                     "res",
-                    "cerdo" 
+                    "cerdo"
                 ]
             },
             {
                 "nombre": "mayonesa",
-                "sustitutos":[
+                "sustitutos": [
                     "crema"
                 ]
             },
@@ -438,12 +437,12 @@
             "huevo-",
             {
                 "nombre": "jamon",
-                "sustitutos":[
+                "sustitutos": [
                     "salchicha",
                     "chorizo",
                     "longaniza",
                     "tocino",
-                    "nopales" 
+                    "nopales"
                 ]
             },
             "frijoles refritos*"
@@ -466,7 +465,7 @@
             "chile poblano-",
             {
                 "nombre": "queso",
-                "sustitutos":[
+                "sustitutos": [
                     "queso panela"
                 ]
             },
@@ -524,7 +523,7 @@
             "crema",
             {
                 "nombre": "queso",
-                "sustitutos":[
+                "sustitutos": [
                     "queso fresco"
                 ]
             },
@@ -548,7 +547,7 @@
             "papa-",
             {
                 "nombre": "chorizo",
-                "sustitutos":[
+                "sustitutos": [
                     "longaniza"
                 ]
             },
@@ -572,13 +571,13 @@
             "tortillas-",
             {
                 "nombre": "fijoles refritos",
-                "sustitutos":[
+                "sustitutos": [
                     "frijoles"
                 ]
             },
             {
                 "nombre": "queso",
-                "sustitutos":[
+                "sustitutos": [
                     "queso fresco",
                     "queso oaxaca",
                     "queso panela",
@@ -606,7 +605,7 @@
         "ingredientes": [
             "camaron-",
             "limon-",
-            { 
+            {
                 "nombre": "chile serrano",
                 "sustitutos": [
                     "chiles",
@@ -634,5 +633,200 @@
         },
         "instrucciones": "Paso 1: Cocer los camarones en limón. Paso 2: Licuar chiles con poco agua y sal. Paso 3: Mezclar todo con pepino y cebolla y servir frío.\nListo! Tienes un delicioso aguachile para disfrutar.",
         "imagen": "img/aguachile.jpg"
+    },
+    {
+        "id": 31,
+        "nombre": "Sopa de tortilla",
+        "ingredientes": [
+            "tortillas-",
+            "jitomate",
+            "cebolla-",
+            {
+                "nombre": "chiles",
+                "sustitutos": [
+                    "chile pasilla"
+                ]
+            },
+            "caldo de pollo",
+            "ajo*",
+            "crema*",
+            "queso*",
+            "aguacate*"
+        ],
+        "restricciones": {
+            "calorias": 430,
+            "carbohidratos": 45,
+            "proteinas": 12,
+            "grasas": 20,
+            "azucares": 6,
+            "vegetariano": false
+        },
+        "instrucciones": "Paso 1: Cortar las tortillas en tiras y freírlas hasta que estén crujientes.\nPaso 2: Licuar jitomate, ajo, cebolla y chile pasilla.\nPaso 3: Sofreír la mezcla y agregar el caldo de pollo.\nPaso 4: Cocinar por 15 minutos y servir con tiras de tortilla, crema, queso y aguacate si se tienen.\nListo! Tienes una deliciosa sopa de tortilla para disfrutar.",
+        "imagen": "img/sopa_tortilla.jpg"
+    },
+    {
+        "id": 32,
+        "nombre": "Tacos",
+        "ingredientes": [
+            "tortillas-",
+            {
+                "nombre": "res",
+                "sustitutos": [
+                    "cerdo",
+                    "chorizo",
+                    "longaniza",
+                    "pollo"
+                ]
+            },
+            "cebolla",
+            "cilantro*",
+            "limon*"
+        ],
+        "restricciones": {
+            "calorias": 520,
+            "carbohidratos": 40,
+            "proteinas": 28,
+            "grasas": 25,
+            "azucares": 3,
+            "vegetariano": false
+        },
+        "instrucciones": "Paso 1: Cocinar la carne con sal.\nPaso 2: Calentar las tortillas.\nPaso 3: Servir la carne en las tortillas y añadir el limón cebolla, cilantro y salsa al gusto.\n Listo! Tienes unos deliciosos tacos para disfrutar",
+        "imagen": "img/tacos.webp"
+    },
+    {
+        "id": 33,
+        "nombre": "Sandwich",
+        "ingredientes": [
+            {
+                "nombre": "pan blanco",
+                "sustitutos": [
+                    "pan integral"
+                ]
+            },
+            {
+                "nombre": "queso",
+                "sustitutos": [
+                    "queso manchego",
+                    "queso panela",
+                    "queso fresco"
+                ]
+            },
+            {
+                "nombre": "huevo",
+                "sustitutos": [
+                    "res",
+                    "cerdo",
+                    "jamon",
+                    "pollo",
+                    "tocino",
+                    "chorizo",
+                    "longaniza",
+                    "champiñones"
+                ]
+            },
+            "lechuga",
+            "jitomate",
+            "aguacate*",
+            {
+                "nombre": "mayonesa",
+                "sustitutos": [
+                    "crema"
+                ]
+            }
+        ],
+        "restricciones": {
+            "calorias": 400,
+            "carbohidratos": 35,
+            "proteinas": 15,
+            "grasas": 20,
+            "azucares": 2,
+            "vegetariano": true
+        },
+        "instrucciones": "Paso 1: Tostar el pan si se desea.\nPaso 2: Untar la  mayonesa o la crema en una rebanada de pan.\nPaso 3: Colocar el queso, la proteina cocida y las verduras disponibles.\nPaso 4: Cerrar con la otra rebanada de pan y servir",
+        "imagen": "img/sandwich.jpeg"
+    },
+    {
+        "id": 34,
+        "nombre": "Caldo de pollo",
+        "ingredientes": [
+            "pollo-",
+            "zanahoria",
+            "papa",
+            "cebolla",
+            "ajo*"
+        ],
+        "restricciones": {
+            "calorias": 350,
+            "carbohidratos": 25,
+            "proteinas": 22,
+            "grasas": 10,
+            "azucares": 4,
+            "vegetariano": false
+        },
+        "instrucciones": "Paso 1: Cocer el pollo en agua con ajo y cebolla.\nPaso 2: Picar y agregar las verduras al caldo con sal.\nPaso 3: Cocinar hasta que todo esté suave.\nListo! Tienes un rico caldo de pollo para disfrutar.",
+        "imagen": "img/caldo_pollo.jpeg"
+    },
+    {
+        "id": 35,
+        "nombre": "Caldo de res",
+        "ingredientes": [
+            "res-",
+            "zanahoria",
+            "papa",
+            "cebolla",
+            "elote*",
+            "ajo*"
+        ],
+        "restricciones": {
+            "calorias": 350,
+            "carbohidratos": 25,
+            "proteinas": 22,
+            "grasas": 10,
+            "azucares": 4,
+            "vegetariano": false
+        },
+        "instrucciones": "Paso 1: Cocer la carne de res en agua con ajo y cebolla.\nPaso 2: Picar y agregar las verduras al caldo con sal.\nPaso 3: Cocinar hasta que todo esté suave.\nListo! Tienes un rico caldo de red para disfrutar.",
+        "imagen": "img/caldo_pollo.jpg"
+    },
+    {
+        "id": 36,
+        "nombre": "Caldo de res",
+        "ingredientes": [
+            "res-",
+            "zanahoria",
+            "papa",
+            "cebolla",
+            "ajo*"
+        ],
+        "restricciones": {
+            "calorias": 350,
+            "carbohidratos": 25,
+            "proteinas": 22,
+            "grasas": 10,
+            "azucares": 4,
+            "vegetariano": false
+        },
+        "instrucciones": "Paso 1: Cocer la carne de res en agua con ajo y cebolla.\nPaso 2: Picar y agregar las verduras al caldo con sal.\nPaso 3: Cocinar hasta que todo esté suave.\nListo! Tienes un rico caldo de red para disfrutar.",
+        "imagen": "img/caldo_res.jpg"
+    },
+    {
+        "id": 37,
+        "nombre": "Tortitas de papa",
+        "ingredientes": [
+            "papa-",
+            "huevo",
+            "pan molido",
+            "queso*"
+        ],
+        "restricciones": {
+            "calorias": 450,
+            "carbohidratos": 40,
+            "proteinas": 10,
+            "grasas": 25,
+            "azucares": 3,
+            "vegetariano": true
+        },
+        "instrucciones": "Paso 1: Machacar la papa y mezclar con huevo y pan molido.\nPaso 2: Formar tortitas y freír.\nPaso 3: Servir calientes con acompañamientos opcionales.",
+        "imagen": "img/tortitas_papa.jpeg"
     }
 ]

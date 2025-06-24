@@ -10,10 +10,14 @@ import os
 app = Flask(__name__)
 CORS(app)
 
+#Decodificar el json
 with open('recetas.json', 'r', encoding='utf-8') as f:
     recetas = json.load(f)
 
 
+#Funciones
+#Algoritmo de normalizacion de datos
+#Funcion para normalizar cada ingrediente, si es opcional, obligatorio o un objeto
 def normalizar_ingrediente(ing):
     if isinstance(ing, str):
         return {
@@ -31,6 +35,105 @@ def normalizar_ingrediente(ing):
         'original': ing.get('nombre', '').rstrip('*').rstrip('-')
     }
 
+
+#Algoritmo de matching con ponderacion
+#Funcion para calcular la coincidencia de los ingredientes enviados con las recetas del json
+def calcular_coincidencia_estricta(ingredientes_busqueda, ingredientes_receta):
+    ingredientes_requeridos = [ing for ing in ingredientes_receta if not ing['opcional']]
+    if not ingredientes_requeridos:
+        return 0, []
+
+    # Verificar primero ingredientes obligatorios
+    for ing_receta in ingredientes_receta:
+        if ing_receta['obligatorio']:
+            encontrado = False
+            # Verificar ingrediente original
+            if ing_receta['nombre'] in ingredientes_busqueda:
+                encontrado = True
+            else:
+                # Verificar sustitutos
+                for sustituto in ing_receta['sustitutos']:
+                    if sustituto in ingredientes_busqueda:
+                        encontrado = True
+                        break
+            
+            if not encontrado:
+                return 0, []  # No cumple con ingrediente obligatorio
+
+    coincidencias = 0
+    ingredientes_mostrar = []
+
+    for ing_receta in ingredientes_receta:
+        ingrediente_mostrar = ing_receta['original']
+        encontrado = False
+
+        # Verificar ingrediente original
+        if ing_receta['nombre'] in ingredientes_busqueda:
+            coincidencias += 1 if not ing_receta['opcional'] else 0.5
+            encontrado = True
+        else:
+            # Verificar sustitutos
+            for sustituto in ing_receta['sustitutos']:
+                if sustituto in ingredientes_busqueda:
+                    coincidencias += 1 if not ing_receta['opcional'] else 0.5
+                    ingrediente_mostrar = sustituto
+                    encontrado = True
+                    break
+        #Si no se encuentra el ite lo marca como faltante
+        if not encontrado and not ing_receta['opcional']:
+            ingrediente_mostrar = f"{ing_receta['original']} (faltante)"
+
+        ingredientes_mostrar.append(ingrediente_mostrar)
+
+    # Porcentaje basado solo en ingredientes requeridos
+    porcentaje = coincidencias / len(ingredientes_requeridos)
+    return porcentaje, ingredientes_mostrar
+
+
+#Algoritmo de validacion por restricciones
+#Funcion para verificar las restricciones de la receta
+def verificar_restricciones(restricciones_busqueda, restricciones_receta):
+    # Filtro vegetariano estricto
+    if restricciones_busqueda.get('vegetariano', False):
+        if not restricciones_receta.get('vegetariano', False):
+            return False
+
+    # Validar nutrientes
+    nutrientes = ['calorias', 'carbohidratos', 'proteinas', 'grasas', 'azucares']
+
+    for nutriente in nutrientes:
+        valor_receta = restricciones_receta.get(nutriente, 0)
+        rango = restricciones_busqueda.get(nutriente, {})
+
+        # Verificar mínimo
+        if 'min' in rango and rango['min'] is not None and valor_receta < rango['min']:
+            return False
+
+        # Verificar máximo
+        if 'max' in rango and rango['max'] is not None and valor_receta > rango['max']:
+            return False
+
+    return True
+
+#Algoritmo de recomendacion basado en exclusion
+#Funcion para sugerir las recetas con mayor porcentaje limitando a 6 recetas
+def obtener_sugerencias(ingredientes_busqueda):
+    #Conjunto para evitar duplicados
+    sugerencias = set()
+    for receta in recetas:
+        for ing in receta['ingredientes']:
+            ing_normalizado = normalizar_ingrediente(ing)
+            if ing_normalizado['nombre'] not in ingredientes_busqueda:
+                sugerencias.add(ing_normalizado['nombre'])
+            for sustituto in ing_normalizado['sustitutos']:
+                if sustituto not in ingredientes_busqueda:
+                    sugerencias.add(sustituto)
+
+    return list(sugerencias)[:5] if sugerencias else []
+
+
+
+#API
 
 @app.route('/api/buscar-recetas', methods=['POST'])
 def buscar_recetas():
@@ -91,7 +194,7 @@ def buscar_recetas():
             'data': recetas_a_devolver,
             'total_recetas': total_recetas,
             'message': f'Se encontraron {total_recetas} recetas' +
-                       (f', mostrando {len(recetas_a_devolver)}' if total_recetas > 10 else '')
+                (f', mostrando {len(recetas_a_devolver)}' if total_recetas > 10 else '')
         })
 
     except Exception as e:
@@ -200,7 +303,7 @@ def generar_pdf():
                 </ul>
 
                 <h2>Preparación</h2>
-               {''.join(f"<div class='step'><div class='circle'>{i+1}</div><div>{line.strip()}</div></div>"
+                {''.join(f"<div class='step'><div class='circle'>{i+1}</div><div>{line.strip()}</div></div>"
                     for i, line in enumerate(receta['instrucciones'].split('\n')) if line.strip())}
             </div>
         </body>
@@ -215,98 +318,6 @@ def generar_pdf():
 
     except Exception as e:
         return jsonify({'success': False, 'message': f'Error generando el PDF: {str(e)}'}), 500
-
-
-def calcular_coincidencia_estricta(ingredientes_busqueda, ingredientes_receta):
-    ingredientes_requeridos = [ing for ing in ingredientes_receta if not ing['opcional']]
-    if not ingredientes_requeridos:
-        return 0, []
-
-    # Verificar primero ingredientes obligatorios
-    for ing_receta in ingredientes_receta:
-        if ing_receta['obligatorio']:
-            encontrado = False
-            
-            # Verificar ingrediente original
-            if ing_receta['nombre'] in ingredientes_busqueda:
-                encontrado = True
-            else:
-                # Verificar sustitutos
-                for sustituto in ing_receta['sustitutos']:
-                    if sustituto in ingredientes_busqueda:
-                        encontrado = True
-                        break
-            
-            if not encontrado:
-                return 0, []  # No cumple con ingrediente obligatorio
-
-    coincidencias = 0
-    ingredientes_mostrar = []
-
-    for ing_receta in ingredientes_receta:
-        ingrediente_mostrar = ing_receta['original']
-        encontrado = False
-
-        # Verificar ingrediente original
-        if ing_receta['nombre'] in ingredientes_busqueda:
-            coincidencias += 1 if not ing_receta['opcional'] else 0.5
-            encontrado = True
-        else:
-            # Verificar sustitutos
-            for sustituto in ing_receta['sustitutos']:
-                if sustituto in ingredientes_busqueda:
-                    coincidencias += 1 if not ing_receta['opcional'] else 0.5
-                    ingrediente_mostrar = sustituto
-                    encontrado = True
-                    break
-
-        if not encontrado and not ing_receta['opcional']:
-            ingrediente_mostrar = f"{ing_receta['original']} (faltante)"
-
-        ingredientes_mostrar.append(ingrediente_mostrar)
-
-    # Porcentaje basado solo en ingredientes requeridos
-    porcentaje = coincidencias / len(ingredientes_requeridos)
-    return porcentaje, ingredientes_mostrar
-
-
-def verificar_restricciones(restricciones_busqueda, restricciones_receta):
-    # Filtro vegetariano estricto
-    if restricciones_busqueda.get('vegetariano', False):
-        if not restricciones_receta.get('vegetariano', False):
-            return False
-
-    # Validar nutrientes
-    nutrientes = ['calorias', 'carbohidratos', 'proteinas', 'grasas', 'azucares']
-
-    for nutriente in nutrientes:
-        valor_receta = restricciones_receta.get(nutriente, 0)
-        rango = restricciones_busqueda.get(nutriente, {})
-
-        # Verificar mínimo
-        if 'min' in rango and rango['min'] is not None and valor_receta < rango['min']:
-            return False
-
-        # Verificar máximo
-        if 'max' in rango and rango['max'] is not None and valor_receta > rango['max']:
-            return False
-
-    return True
-
-
-def obtener_sugerencias(ingredientes_busqueda):
-    sugerencias = set()
-
-    for receta in recetas:
-        for ing in receta['ingredientes']:
-            ing_normalizado = normalizar_ingrediente(ing)
-            if ing_normalizado['nombre'] not in ingredientes_busqueda:
-                sugerencias.add(ing_normalizado['nombre'])
-            for sustituto in ing_normalizado['sustitutos']:
-                if sustituto not in ingredientes_busqueda:
-                    sugerencias.add(sustituto)
-
-    return list(sugerencias)[:5] if sugerencias else []
 
 
 if __name__ == '__main__':
