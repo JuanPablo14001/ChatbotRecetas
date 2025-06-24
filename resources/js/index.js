@@ -69,20 +69,13 @@ const openModalWithReceta = id => {
     `;
 
     const ingredientesList = receta.ingredientes
-        .reduce((html, ingrediente, index, arr) => {
-            // Abrir nuevo <li> cada 2 elementos
-            if (index % 2 === 0) {
-                const next = arr[index + 1];
-                html += `
-                <li class="flex  gap-4 py-1 px-3 rounded-md transition-colors duration-200">
-                    <span class="text-red-500">•</span> ${ingrediente}
-                    ${next !== undefined
-                        ? `<span class="text-red-500">•</span> ${next}`
-                        : ''}
-                </li>`;
-            }
-            return html;
-        }, '');
+    .reduce((html, ingrediente) => {
+        html += `
+        <li class="flex gap-4 py-1 px-3 rounded-md transition-colors duration-200">
+            <span class="text-red-500">•</span> ${ingrediente}
+        </li>`;
+        return html;
+    }, '');
 
     const instruccionesFormateadas = receta.instrucciones
         .split('\n')
@@ -635,7 +628,7 @@ const asideBarEvent = () => {
 
 const allIngredients = [
     // Carnes
-    "res", "cerdo", "pollo", "pavo", "carne molida", "chorizo", "longaniza", "salchicha", "jamon", "tocino",
+    "res", "cerdo", "pollo",  "carne molida", "chorizo", "longaniza", "salchicha", "jamon", "tocino",
 
     // Pescados y mariscos
     "atun", "camaron",

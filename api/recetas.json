@@ -256,7 +256,8 @@
                 "nombre": "chile serrano",
                 "sustitutos": [
                     "chile verde",
-                    "chile jalapeño"
+                    "chile jalapeño",
+                    "chiles"
                 ]
             }
         ],
@@ -569,12 +570,7 @@
         "nombre": "Enfrijoladas",
         "ingredientes": [
             "tortillas-",
-            {
-                "nombre": "fijoles refritos",
-                "sustitutos": [
-                    "frijoles"
-                ]
-            },
+            "frijoles refritos-",
             {
                 "nombre": "queso",
                 "sustitutos": [
@@ -640,7 +636,7 @@
         "ingredientes": [
             "tortillas-",
             "jitomate",
-            "cebolla-",
+            "cebolla",
             {
                 "nombre": "chiles",
                 "sustitutos": [
@@ -721,12 +717,14 @@
                     "tocino",
                     "chorizo",
                     "longaniza",
-                    "champiñones"
+                    "champiñones",
+                    "salchicha"
                 ]
             },
-            "lechuga",
-            "jitomate",
+            "lechuga*",
+            "jitomate*",
             "aguacate*",
+            "cebolla*",
             {
                 "nombre": "mayonesa",
                 "sustitutos": [
@@ -785,28 +783,7 @@
             "azucares": 4,
             "vegetariano": false
         },
-        "instrucciones": "Paso 1: Cocer la carne de res en agua con ajo y cebolla.\nPaso 2: Picar y agregar las verduras al caldo con sal.\nPaso 3: Cocinar hasta que todo esté suave.\nListo! Tienes un rico caldo de red para disfrutar.",
-        "imagen": "img/caldo_pollo.jpg"
-    },
-    {
-        "id": 36,
-        "nombre": "Caldo de res",
-        "ingredientes": [
-            "res-",
-            "zanahoria",
-            "papa",
-            "cebolla",
-            "ajo*"
-        ],
-        "restricciones": {
-            "calorias": 350,
-            "carbohidratos": 25,
-            "proteinas": 22,
-            "grasas": 10,
-            "azucares": 4,
-            "vegetariano": false
-        },
-        "instrucciones": "Paso 1: Cocer la carne de res en agua con ajo y cebolla.\nPaso 2: Picar y agregar las verduras al caldo con sal.\nPaso 3: Cocinar hasta que todo esté suave.\nListo! Tienes un rico caldo de red para disfrutar.",
+        "instrucciones": "Paso 1: Cocer la carne de res en agua con ajo y cebolla.\nPaso 2: Picar y agregar las verduras al caldo con sal.\nPaso 3: Cocinar hasta que todo esté suave.\nListo! Tienes un rico caldo de res para disfrutar.",
         "imagen": "img/caldo_res.jpg"
     },
     {
